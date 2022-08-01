@@ -248,3 +248,118 @@ Expected output
 [INFO] Finished at: 2022-08-01T02:36:39-07:00
 [INFO] ------------------------------------------------------------------------
 </pre>
+
+## Creating a custom maven plugin
+```
+cd ~/devops-aug-2022
+git pull
+
+cd Day1/tektutor-hello-plugin
+mvn clean install
+```
+
+## Testing the custom maven without configuring pom file
+```
+cd ~/devops-aug-2022
+git pull
+
+cd Day1/tektutor-hello-plugin
+mvn install
+mvn org.tektutor:tektutor-hello-plugin:1.0:hello
+```
+Expected output
+<pre>
+[jegan@tektutor tektutor-hello-plugin]$ <b>mvn install</b>
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< org.tektutor:tektutor-hello-plugin >-----------------
+[INFO] Building tektutor-hello-plugin Maven Mojo 1.0
+[INFO] ----------------------------[ maven-plugin ]----------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ tektutor-hello-plugin ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /home/jegan/devops-aug-2022/Day1/tektutor-hello-plugin/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ tektutor-hello-plugin ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 1 source file to /home/jegan/devops-aug-2022/Day1/tektutor-hello-plugin/target/classes
+[INFO] 
+[INFO] --- maven-plugin-plugin:3.2:descriptor (default-descriptor) @ tektutor-hello-plugin ---
+[WARNING] Using platform encoding (UTF-8 actually) to read mojo metadata, i.e. build is platform dependent!
+[INFO] Applying mojo extractor for language: java
+[INFO] Mojo extractor for language: java found 1 mojo descriptors.
+[INFO] Applying mojo extractor for language: bsh
+[INFO] Mojo extractor for language: bsh found 0 mojo descriptors.
+[INFO] Applying mojo extractor for language: java-annotations
+[INFO] Mojo extractor for language: java-annotations found 0 mojo descriptors.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ tektutor-hello-plugin ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /home/jegan/devops-aug-2022/Day1/tektutor-hello-plugin/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ tektutor-hello-plugin ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ tektutor-hello-plugin ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ tektutor-hello-plugin ---
+[INFO] Building jar: /home/jegan/devops-aug-2022/Day1/tektutor-hello-plugin/target/tektutor-hello-plugin-1.0.jar
+[INFO] 
+[INFO] --- maven-plugin-plugin:3.2:addPluginArtifactMetadata (default-addPluginArtifactMetadata) @ tektutor-hello-plugin ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ tektutor-hello-plugin ---
+[INFO] Installing /home/jegan/devops-aug-2022/Day1/tektutor-hello-plugin/target/tektutor-hello-plugin-1.0.jar to /home/jegan/.m2/repository/org/tektutor/tektutor-hello-plugin/1.0/tektutor-hello-plugin-1.0.jar
+[INFO] Installing /home/jegan/devops-aug-2022/Day1/tektutor-hello-plugin/pom.xml to /home/jegan/.m2/repository/org/tektutor/tektutor-hello-plugin/1.0/tektutor-hello-plugin-1.0.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.581 s
+[INFO] Finished at: 2022-08-01T03:21:17-07:00
+[INFO] ------------------------------------------------------------------------
+[jegan@tektutor tektutor-hello-plugin]$ <b>mvn org.tektutor:tektutor-hello-plugin:1.0:hello</b>
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< org.tektutor:tektutor-hello-plugin >-----------------
+[INFO] Building tektutor-hello-plugin Maven Mojo 1.0
+[INFO] ----------------------------[ maven-plugin ]----------------------------
+[INFO] 
+[INFO] --- tektutor-hello-plugin:1.0:hello (default-cli) @ tektutor-hello-plugin ---
+TekTutor Hello plugin - hello goal invoked !
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.225 s
+[INFO] Finished at: 2022-08-01T03:21:33-07:00
+[INFO] ------------------------------------------------------------------------
+</pre>
+
+
+## Invoking our custom plugin from another project
+```
+cd ~/devops-aug-2022
+git pull
+
+cd Day1/hello
+mvn validate
+```
+
+Expected output
+<pre>
+[jegan@tektutor hello]$ <b>mvn validate</b>
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.tektutor:tektutor-hello-app >-------------------
+[INFO] Building tektutor-hello-app 1.0.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- tektutor-hello-plugin:1.0:hello (custom-hello) @ tektutor-hello-app ---
+<b>TekTutor Hello plugin - hello goal invoked !</b>
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.198 s
+[INFO] Finished at: 2022-08-01T03:19:57-07:00
+[INFO] ------------------------------------------------------------------------
+</pre>
