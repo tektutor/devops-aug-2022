@@ -6,6 +6,12 @@ sudo yum install -y epel-release
 sudo yum install -y java-11-openjdk-devel
 ```
 
+## Package Managers
+- Ubuntu/Debian Linux distros, they use a package manager called apt(apt-get)
+- CentOS/RHEL Linux distros, they use a package managed called yum, rpm
+- are used to install/uninstall/update/upgrades softwares
+- package managers use config files to pick the server url(repository server urls) to download the softwares
+
 ## What is Ant ?
 - an opensource build tool
 - used by Java projects
