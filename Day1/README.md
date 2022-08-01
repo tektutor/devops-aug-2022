@@ -414,7 +414,7 @@ docker run --name artifactory -d -p 8081:8081 docker.bintray.io/jfrog/artifactor
 ```
 Expected output
 <pre>
-[jegan@tektutor devops-aug-2022]$ <b>docker run --name artifactory -d -p 8081:8081 docker.bintray.io/jfrog/artifactory-oss:latest</b>
+[jegan@tektutor devops-aug-2022]$ <b>docker run --name artifactory -d -p 8081:8081  -p 8082:8082  docker.bintray.io/jfrog/artifactory-oss:latest</b>
 Unable to find image 'docker.bintray.io/jfrog/artifactory-oss:latest' locally
 latest: Pulling from jfrog/artifactory-oss
 4f4fb700ef54: Pull complete 
@@ -447,7 +447,7 @@ docker inspect artifactory | grep IPA
 In case docker ps command doesn't show artifactory container in running state, then try deleting and recreate.
 ```
 docker rm -f artifactory
-docker run --name artifactory -d -p 8081:8081 docker.bintray.io/jfrog/artifactory-oss:latest
+docker run --name artifactory -d -p 8081:8081 -p 8082:8082 docker.bintray.io/jfrog/artifactory-oss:latest
 ```
 
 List the container and see if it is running now
