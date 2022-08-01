@@ -66,7 +66,7 @@ git pull
 
 Try validating the pom file as shown below
 ```
-cd /home/devops/devops-aug-2022/hello
+cd /home/devops/devops-aug-2022/Day1/hello
 mvn validate
 ```
 
