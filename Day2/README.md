@@ -16,6 +16,7 @@ docker images
 ```
 
 ## Troubleshooting docker permission denied error
+When it prompts for password, please type rps@12345
 ```
 sudo usermod -aG docker $USER
 newgrp docker
