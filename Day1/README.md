@@ -338,7 +338,7 @@ TekTutor Hello plugin - hello goal invoked !
 
 ## ⛹️‍♂️ Lab - Invoking our custom plugin from another project
 You need to configure the pom.xml file to invoke your custom plugin as shown below
-<pre>
+```
 <project>
         <modelVersion>4.0.0</modelVersion>
 
@@ -370,7 +370,8 @@ You need to configure the pom.xml file to invoke your custom plugin as shown bel
                 </plugins>
         </build>
 </project>
-</pre>
+```
+The above configurations are already done in the pom.xml.
 
 ```
 cd ~/devops-aug-2022
