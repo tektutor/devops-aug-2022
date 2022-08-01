@@ -250,6 +250,14 @@ Expected output
 </pre>
 
 ## ⛹️‍♂️ Lab - Creating a custom maven plugin
+
+Command used to generate plugin project.  You can skip this step as the tektutor-hello-plugin project has all the necessary code.  This is just for your knowledge.
+```
+mvn archetype:generate -DgroupId=org.tektutor -DartifactId=tektutor-hello-plugin -Dversion=1.0 -DarchetypeArtifactId=maven-archetype-plugin -DinteractiveMode=false
+```
+
+
+Please try this one
 ```
 cd ~/devops-aug-2022
 git pull
