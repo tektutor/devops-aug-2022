@@ -139,6 +139,10 @@ more effective-pom.txt
 
 ### Listing the default life-cycle phases
 ```
+cd ~/devops-aug-2022
+git pull
+
+cd Day1/hello
 mvn help:describe -Dcmd=compile
 ```
 
