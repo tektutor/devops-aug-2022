@@ -9,4 +9,23 @@
 	<groupId>org.tektutor</groupId>
 	<artifactId>tektutor-hello-app</artifactId>
 	<version>1.0.0</version>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.tektutor</groupId>
+				<artifactId>tektutor-hello-plugin</artifactId>
+				<version>1.0</version>
+				<executions>
+					<execution>
+						<id>custom-hello</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>hello</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
