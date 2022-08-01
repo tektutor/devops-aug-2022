@@ -16,3 +16,9 @@ newgrp docker
 docker version
 docker images
 ```
+
+## Troubleshooting docker permission denied error
+```
+newgrp docker
+docker images
+```
