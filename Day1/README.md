@@ -93,6 +93,9 @@ mvn help:describe -DgroupId=org.apache.maven.plugins -DartifactId=maven-compiler
 
 ## Listing the plugin goals with parameter details
 ```
+cd ~/devops-aug-2022/Day1/hello
+git pull
+
 mvn help:describe -DgroupId=org.apache.maven.plugins -DartifactId=maven-compiler-plugin -Dversion=3.1 -Ddetail=true > goals.txt
 ```
 
@@ -106,5 +109,7 @@ mvn help:describe -DgroupId=org.apache.maven.plugins -DartifactId=maven-compiler
 
 ## Command to generate effective pom
 ```
+cd ~/devops-aug-2022/Day1/hello
+git pull
 mvn help:effective-pom > effective-pom.txt
 ```
