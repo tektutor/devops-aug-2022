@@ -266,7 +266,7 @@ cd Day1/tektutor-hello-plugin
 mvn clean install
 ```
 
-## ⛹️‍♂️ Lab - Testing the custom maven without configuring pom file
+## ⛹️‍♂️ Lab - Testing the custom maven plugin without configuring pom file
 ```
 cd ~/devops-aug-2022
 git pull
