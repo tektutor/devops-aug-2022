@@ -191,3 +191,31 @@ It is a part of the lifecycle for the POM packaging 'jar'. This lifecycle includ
 [INFO] Finished at: 2022-08-01T02:24:48-07:00
 [INFO] ------------------------------------------------------------------------
 </pre>
+
+## Listing the clean life-cycle phases
+```
+mvn help:describe -Dcmd=clean
+```
+
+Expected output
+<pre>
+[jegan@tektutor hello]$ <b>mvn help:describe -Dcmd=clean</b>
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.tektutor:tektutor-hello-app >-------------------
+[INFO] Building tektutor-hello-app 1.0.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-help-plugin:3.2.0:describe (default-cli) @ tektutor-hello-app ---
+[INFO] 'clean' is a phase within the 'clean' lifecycle, which has the following phases: 
+* pre-clean: Not defined
+* clean: org.apache.maven.plugins:maven-clean-plugin:2.5:clean
+* post-clean: Not defined
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.037 s
+[INFO] Finished at: 2022-08-01T02:33:01-07:00
+[INFO] ------------------------------------------------------------------------
+</pre>
