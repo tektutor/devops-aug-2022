@@ -432,6 +432,13 @@ Status: Downloaded newer image for docker.bintray.io/jfrog/artifactory-oss:lates
 dbd8dc39710c1739c46aeac607a60c01f91cf45b26e024018937835effc0dbd6
 </pre>
 
+## Troubleshooting permission denied error
+```
+newgrp docker
+docker rm -f $(docker ps -aq)
+docker run --name artifactory -d -p 8081:8081  -p 8082:8082  docker.bintray.io/jfrog/artifactory-oss:latest
+```
+
 
 Listing the container
 ```
