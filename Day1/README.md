@@ -467,3 +467,13 @@ Expected output
 CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS          PORTS                                       NAMES
 877d63dc8496   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   11 seconds ago   Up 10 seconds   0.0.0.0:8081->8081/tcp, :::8081->8081/tcp   artifactory
 </pre>
+
+## Accessing the JFrog Artifactory webpage
+```
+locahost:8081
+```
+
+It would take some time to load the server.  Once it is ready, the JFrog Artifactory url will be redirectred to localhost:8082/ui url
+
+When it prompts for credentials, type 'admin' as user and 'password' for password.  The first time you login, it will ask you to change the password, I changed it to 'Admin@123'
+
