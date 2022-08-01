@@ -407,3 +407,18 @@ Expected output
 [INFO] Finished at: 2022-08-01T03:19:57-07:00
 [INFO] ------------------------------------------------------------------------
 </pre>
+
+## Creating Opensource JFrog Artifactory container
+```
+docker run --name artifactory -d -p 8081:8081 docker.bintray.io/jfrog/artifactory-oss:latest
+```
+
+Listing the container
+```
+docker ps
+```
+
+Finding the artifactory container IP address
+```
+docker inspect artifactory | grep IPA
+```
