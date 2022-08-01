@@ -414,7 +414,22 @@ docker run --name artifactory -d -p 8081:8081 docker.bintray.io/jfrog/artifactor
 ```
 Expected output
 <pre>
-
+[jegan@tektutor devops-aug-2022]$ <b>docker run --name artifactory -d -p 8081:8081 docker.bintray.io/jfrog/artifactory-oss:latest</b>
+Unable to find image 'docker.bintray.io/jfrog/artifactory-oss:latest' locally
+latest: Pulling from jfrog/artifactory-oss
+4f4fb700ef54: Pull complete 
+6d4016e28cd2: Pull complete 
+3586b82cdb38: Pull complete 
+efd173c71a6c: Pull complete 
+9ab9a2e4e6ca: Pull complete 
+632a363c34eb: Pull complete 
+7cdbe2d200e6: Pull complete 
+5b6aada0af2b: Pull complete 
+215521586005: Pull complete 
+dfa0d383f974: Pull complete 
+Digest: sha256:7b0260c810bf42d10858919d273dcfcba02f24436160faae761e9c3f84618bf6
+Status: Downloaded newer image for docker.bintray.io/jfrog/artifactory-oss:latest
+dbd8dc39710c1739c46aeac607a60c01f91cf45b26e024018937835effc0dbd6
 </pre>
 
 
