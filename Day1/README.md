@@ -337,6 +337,41 @@ TekTutor Hello plugin - hello goal invoked !
 
 
 ## ⛹️‍♂️ Lab - Invoking our custom plugin from another project
+You need to configure the pom.xml file to invoke your custom plugin as shown below
+<pre>
+<project>
+        <modelVersion>4.0.0</modelVersion>
+
+        <properties>
+                <maven.compiler.source>1.8</maven.compiler.source>
+                <maven.compiler.target>1.8</maven.compiler.target>
+        </properties>
+
+        <groupId>org.tektutor</groupId>
+        <artifactId>tektutor-hello-app</artifactId>
+        <version>1.0.0</version>
+
+        <build>
+                <plugins>
+                        <plugin>
+                                <groupId>org.tektutor</groupId>
+                                <artifactId>tektutor-hello-plugin</artifactId>
+                                <version>1.0</version>
+                                <executions>
+                                        <execution>
+                                                <id>custom-hello</id>
+                                                <phase>validate</phase>
+                                                <goals>
+                                                        <goal>hello</goal>
+                                                </goals>
+                                        </execution>
+                                </executions>
+                        </plugin>
+                </plugins>
+        </build>
+</project>
+</pre>
+
 ```
 cd ~/devops-aug-2022
 git pull
