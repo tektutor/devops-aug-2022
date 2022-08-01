@@ -412,6 +412,33 @@ Expected output
 ```
 docker run --name artifactory -d -p 8081:8081 docker.bintray.io/jfrog/artifactory-oss:latest
 ```
+Expected output
+<pre>
+[jegan@tektutor devops-aug-2022]$ <b>docker run --name artifactory -d -p 8081:8081  -p 8082:8082  docker.bintray.io/jfrog/artifactory-oss:latest</b>
+Unable to find image 'docker.bintray.io/jfrog/artifactory-oss:latest' locally
+latest: Pulling from jfrog/artifactory-oss
+4f4fb700ef54: Pull complete 
+6d4016e28cd2: Pull complete 
+3586b82cdb38: Pull complete 
+efd173c71a6c: Pull complete 
+9ab9a2e4e6ca: Pull complete 
+632a363c34eb: Pull complete 
+7cdbe2d200e6: Pull complete 
+5b6aada0af2b: Pull complete 
+215521586005: Pull complete 
+dfa0d383f974: Pull complete 
+Digest: sha256:7b0260c810bf42d10858919d273dcfcba02f24436160faae761e9c3f84618bf6
+Status: Downloaded newer image for docker.bintray.io/jfrog/artifactory-oss:latest
+dbd8dc39710c1739c46aeac607a60c01f91cf45b26e024018937835effc0dbd6
+</pre>
+
+## Troubleshooting permission denied error
+```
+newgrp docker
+docker rm -f $(docker ps -aq)
+docker run --name artifactory -d -p 8081:8081  -p 8082:8082  docker.bintray.io/jfrog/artifactory-oss:latest
+```
+
 
 Listing the container
 ```
@@ -422,3 +449,31 @@ Finding the artifactory container IP address
 ```
 docker inspect artifactory | grep IPA
 ```
+
+## Troubleshooting JFrog Artifactory container creation
+In case docker ps command doesn't show artifactory container in running state, then try deleting and recreate.
+```
+docker rm -f artifactory
+docker run --name artifactory -d -p 8081:8081 -p 8082:8082 docker.bintray.io/jfrog/artifactory-oss:latest
+```
+
+List the container and see if it is running now
+```
+docker ps
+```
+Expected output
+<pre>
+[jegan@tektutor devops-aug-2022]$ <b>docker ps</b>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+877d63dc8496   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   11 seconds ago   Up 10 seconds   0.0.0.0:8081->8081/tcp, :::8081->8081/tcp   artifactory
+</pre>
+
+## Accessing the JFrog Artifactory webpage
+```
+locahost:8081
+```
+
+It would take some time to load the server.  Once it is ready, the JFrog Artifactory url will be redirectred to localhost:8082/ui url
+
+When it prompts for credentials, type 'admin' as user and 'password' for password.  The first time you login, it will ask you to change the password, I changed it to 'Admin@123'
+
