@@ -86,6 +86,16 @@ Expected output
 [INFO] ------------------------------------------------------------------------
 </pre>
 
+## Listing the plugin goals
+```
+mvn help:describe -DgroupId=org.apache.maven.plugins -DartifactId=maven-compiler-plugin -Dversion=3.1 
+```
+
+## Listing the plugin goals with parameter details
+```
+mvn help:describe -DgroupId=org.apache.maven.plugins -DartifactId=maven-compiler-plugin -Dversion=3.1 -Ddetail=true > goals.txt
+```
+
 ## Super POM
 - Super POM has most common set of configurations required by most Java applications
 - every Project specific POM file inherits the common set of properties from Super POM by default
@@ -93,3 +103,8 @@ Expected output
 ## Effective POM
 - is a comibination of your project POM file + Super POM
 - maven generates the effective POM on the fly(runtime) and it uses the properties to decide how your maven project should be compiled
+
+## Command to generate effective pom
+```
+mvn help:effective-pom > effective-pom.txt
+```
