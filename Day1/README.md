@@ -219,3 +219,32 @@ Expected output
 [INFO] Finished at: 2022-08-01T02:33:01-07:00
 [INFO] ------------------------------------------------------------------------
 </pre>
+
+## Listing site life-cycle phases
+```
+mvn help:describe -Dcmd=site
+```
+
+Expected output
+<pre>
+[jegan@tektutor hello]$ <b>mvn help:describe -Dcmd=site</b>
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.tektutor:tektutor-hello-app >-------------------
+[INFO] Building tektutor-hello-app 1.0.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-help-plugin:3.2.0:describe (default-cli) @ tektutor-hello-app ---
+[INFO] 'site' is a phase within the 'site' lifecycle, which has the following phases: 
+* pre-site: Not defined
+* site: org.apache.maven.plugins:maven-site-plugin:3.3:site
+* post-site: Not defined
+* site-deploy: org.apache.maven.plugins:maven-site-plugin:3.3:deploy
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.182 s
+[INFO] Finished at: 2022-08-01T02:36:39-07:00
+[INFO] ------------------------------------------------------------------------
+</pre>
