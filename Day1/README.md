@@ -62,7 +62,7 @@ sudo yum install -y java-11-openjdk-devel
 - has all the opensource libary/plugin binaries
 
 
-## Writing your first hello world application following maven conventions
+## ⛹️‍♂️ Lab - Writing your first hello world application following maven conventions
 
 Open terminal on your RPS lab machine and navigate to below folder to pull delta changes
 ```
@@ -92,7 +92,7 @@ Expected output
 [INFO] ------------------------------------------------------------------------
 </pre>
 
-## Listing the plugin goals
+## ⛹️‍♂️ Lab - Listing the plugin goals
 ```
 mvn help:describe -DgroupId=org.apache.maven.plugins -DartifactId=maven-compiler-plugin -Dversion=3.1 
 ```
@@ -137,7 +137,7 @@ more effective-pom.txt
 ### default maven lifecycle
 - it supports 23 Phases
 
-### Listing the default life-cycle phases
+### ⛹️‍♂️ Lab - Listing the default life-cycle phases
 ```
 cd ~/devops-aug-2022
 git pull
@@ -192,7 +192,7 @@ It is a part of the lifecycle for the POM packaging 'jar'. This lifecycle includ
 [INFO] ------------------------------------------------------------------------
 </pre>
 
-## Listing the clean life-cycle phases
+## ⛹️‍♂️ Lab - Listing the clean life-cycle phases
 ```
 mvn help:describe -Dcmd=clean
 ```
@@ -220,7 +220,7 @@ Expected output
 [INFO] ------------------------------------------------------------------------
 </pre>
 
-## Listing site life-cycle phases
+## ⛹️‍♂️ Lab - Listing site life-cycle phases
 ```
 mvn help:describe -Dcmd=site
 ```
@@ -249,7 +249,7 @@ Expected output
 [INFO] ------------------------------------------------------------------------
 </pre>
 
-## Creating a custom maven plugin
+## ⛹️‍♂️ Lab - Creating a custom maven plugin
 ```
 cd ~/devops-aug-2022
 git pull
@@ -258,7 +258,7 @@ cd Day1/tektutor-hello-plugin
 mvn clean install
 ```
 
-## Testing the custom maven without configuring pom file
+## ⛹️‍♂️ Lab - Testing the custom maven without configuring pom file
 ```
 cd ~/devops-aug-2022
 git pull
@@ -336,7 +336,7 @@ TekTutor Hello plugin - hello goal invoked !
 </pre>
 
 
-## Invoking our custom plugin from another project
+## ⛹️‍♂️ Lab - Invoking our custom plugin from another project
 ```
 cd ~/devops-aug-2022
 git pull
