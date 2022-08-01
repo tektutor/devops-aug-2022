@@ -98,6 +98,8 @@ git pull
 
 cd Day1/hello
 mvn help:describe -DgroupId=org.apache.maven.plugins -DartifactId=maven-compiler-plugin -Dversion=3.1 -Ddetail=true > goals.txt
+
+more goals.txt
 ```
 
 ## Super POM
@@ -115,4 +117,6 @@ git pull
 
 cd Day1/hello
 mvn help:effective-pom > effective-pom.txt
+
+more effective-pom.txt
 ```
