@@ -85,3 +85,11 @@ Expected output
 [INFO] Finished at: 2022-08-01T00:15:11-07:00
 [INFO] ------------------------------------------------------------------------
 </pre>
+
+## Super POM
+- Super POM has most common set of configurations required by most Java applications
+- every Project specific POM file inherits the common set of properties from Super POM by default
+
+## Effective POM
+- is a comibination of your project POM file + Super POM
+- maven generates the effective POM on the fly(runtime) and it uses the properties to decide how your maven project should be compiled
