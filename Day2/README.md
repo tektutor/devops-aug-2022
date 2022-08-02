@@ -126,3 +126,17 @@ docker images
 ```
 docker pull hello-world:latest
 ```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker pull hello-world:latest</b>
+latest: Pulling from library/hello-world
+2db29710123e: Pull complete 
+Digest: sha256:53f1bbee2f52c39e41682ee1d388285290c5c8a76cc92b42687eecf38e0af3f0
+Status: Downloaded newer image for hello-world:latest
+docker.io/library/hello-world:latest
+[jegan@tektutor ~]$ <b>docker images</b>
+REPOSITORY                                TAG       IMAGE ID       CREATED         SIZE
+docker.bintray.io/jfrog/artifactory-oss   latest    031acd2d33c7   3 weeks ago     1.19GB
+<b>hello-world                               latest    feb5d9fea6a5   10 months ago   13.3kB</b>
+</pre>
