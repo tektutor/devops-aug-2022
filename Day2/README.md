@@ -195,3 +195,38 @@ root@ubuntu1:/# <b>hostname -i</b>
 root@ubuntu1:/# <b>exit</b>
 exit
 </pre>
+
+## ⛹️‍♂️ Lab - Creating containers in background(deattached/daemon) mode
+```
+docker run -dit --name ubuntu2 --hostname ubuntu2 ubuntu:18.04 /bin/bash
+docker run -dit --name ubuntu3 --hostname ubuntu2 ubuntu:18.04 /bin/bash
+docker run -dit --name ubuntu4 --hostname ubuntu2 ubuntu:18.04 /bin/bash
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker run -dit --name ubuntu2 --hostname ubuntu2 ubuntu:18.04 /bin/bash</b>
+22554db319c72880227227162f6772c5d0c9fdd3ef4750fcc5922c0d9dc36b9d
+[jegan@tektutor ~]$ <b>docker run -dit --name ubuntu3 --hostname ubuntu3 ubuntu:18.04 /bin/bash</b>
+b1936251f773e0bb9f543507deb300567abd3877483061d106504eba9248af44
+[[A[jegan@tektutor ~]$ <b>docker run -dit --name ubuntu4 --hostname ubuntu4 ubuntu:18.04 /bin/bash</b>
+768963fc1186d0f9191b60832168a160f177de5c102abe3d9cd38b093d3c026d
+</pre>
+
+#### ⛹️‍♀️ Lab - Listing the currently running containers
+```
+docker start ubuntu1
+docker ps
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker start ubuntu1</b>
+ubuntu1
+[jegan@tektutor ~]$ <b>docker ps</b>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS                      PORTS                                                           NAMES
+768963fc1186   ubuntu:18.04                                     "/bin/bash"              26 seconds ago   Up 25 seconds                                                                               ubuntu4
+b1936251f773   ubuntu:18.04                                     "/bin/bash"              32 seconds ago   Up 31 seconds                                                                               ubuntu3
+22554db319c7   ubuntu:18.04                                     "/bin/bash"              39 seconds ago   Up 38 seconds                                                                               ubuntu2
+70b16768a7d7   ubuntu:18.04                                     "/bin/bash"              6 minutes ago    Up 1 second                                                                                   ubuntu1
+</pre>
