@@ -340,6 +340,28 @@ CONTAINER ID   IMAGE                                            COMMAND         
 303ea4ccc524   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago   Up 4 seconds   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
 
+## Renaming a container
+```
+docker rename <old-container-name> <new-container-name>
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker ps</b>
+CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS          PORTS                               NAMES
+2662c9ae5974   nginx:1.18   "/docker-entrypoint.…"   12 minutes ago   Up 10 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp   lb
+37c22e33232f   nginx:1.18   "/docker-entrypoint.…"   12 minutes ago   Up 12 minutes   80/tcp                              web3
+cea4da8e9928   nginx:1.18   "/docker-entrypoint.…"   12 minutes ago   Up 12 minutes   80/tcp                              web2
+3e4dea5ae0e5   nginx:1.18   "/docker-entrypoint.…"   12 minutes ago   Up 12 minutes   80/tcp                              web1
+[jegan@tektutor ~]$ <b>docker rename web1 c1</b>
+[jegan@tektutor ~]$ <b>docker ps</b>
+CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS          PORTS                               NAMES
+2662c9ae5974   nginx:1.18   "/docker-entrypoint.…"   12 minutes ago   Up 10 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp   lb
+37c22e33232f   nginx:1.18   "/docker-entrypoint.…"   12 minutes ago   Up 12 minutes   80/tcp                              web3
+cea4da8e9928   nginx:1.18   "/docker-entrypoint.…"   12 minutes ago   Up 12 minutes   80/tcp                              web2
+<b>3e4dea5ae0e5   nginx:1.18   "/docker-entrypoint.…"   12 minutes ago   Up 12 minutes   80/tcp                              c1</b>
+</pre>
+
 ## ⛹️‍♂️ Lab - Finding IP Address of a container
 ```
 docker inspect <container-name> | grep IPA
