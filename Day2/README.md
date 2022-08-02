@@ -277,3 +277,27 @@ ubuntu1
 [jegan@tektutor ~]$ <b>docker rm ubuntu1</b>
 ubuntu1
 </pre>
+
+## ⛹️‍♂️ Lab - Deleting a running container forcibly
+```
+docker ps
+docker rm -f ubuntu4
+docker ps
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker ps</b>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS          PORTS                                                           NAMES
+768963fc1186   ubuntu:18.04                                     "/bin/bash"              23 minutes ago   Up 23 minutes                                                                   ubuntu4
+b1936251f773   ubuntu:18.04                                     "/bin/bash"              23 minutes ago   Up 23 minutes                                                                   ubuntu3
+22554db319c7   ubuntu:18.04                                     "/bin/bash"              23 minutes ago   Up 23 minutes                                                                   ubuntu2
+303ea4ccc524   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago     Up 4 hours      0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+[jegan@tektutor ~]$ <b>docker rm -f ubuntu4</b>
+ubuntu4
+[jegan@tektutor ~]$ <b>docker ps</b>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS          PORTS                                                           NAMES
+b1936251f773   ubuntu:18.04                                     "/bin/bash"              23 minutes ago   Up 23 minutes                                                                   ubuntu3
+22554db319c7   ubuntu:18.04                                     "/bin/bash"              23 minutes ago   Up 23 minutes                                                                   ubuntu2
+303ea4ccc524   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago     Up 4 hours      0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+</pre>
