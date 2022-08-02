@@ -302,7 +302,7 @@ b1936251f773   ubuntu:18.04                                     "/bin/bash"     
 303ea4ccc524   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago     Up 4 hours      0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
 
-## Starting, Stopping, Restart and deleting multiple containers at one shot
+##  ⛹️‍♂️ Lab - Starting, Stopping, Restart and deleting multiple containers at one shot
 <pre>
 [jegan@tektutor ~]$ <b>docker ps</b>
 CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS          PORTS                                                           NAMES
@@ -340,3 +340,116 @@ CONTAINER ID   IMAGE                                            COMMAND         
 303ea4ccc524   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago   Up 4 seconds   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
 
+## ⛹️‍♂️ Lab - Finding IP Address of a container
+```
+docker inspect <container-name> | grep IPA
+docker inspect -f {{.NetworkSettings.IPAddress}} <container-name>
+```
+
+Expected output
+<pre>
+[jegan@tektutor HelloMicroservice]$ <b>docker inspect c1 | grep IPA</b>
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.3",
+                    "IPAMConfig": null,
+                    "IPAddress": "172.17.0.3",
+[jegan@tektutor HelloMicroservice]$ <b>docker inspect -f {{.NetworkSettings.IPAddress}} c1</b>
+172.17.0.3
+</pre>
+
+## ⛹️‍♂️ Lab - Finding more details about an image
+```
+docker image inspect ubuntu:18.04
+```
+
+Expected output
+<pre>
+[jegan@tektutor HelloMicroservice]$ <b>docker image inspect ubuntu:18.04</b>
+[
+    {
+        "Id": "sha256:8d5df41c547bd107c14368ad302efc46760940ae188df451cabc23e10f7f161b",
+        "RepoTags": [
+            "ubuntu:18.04"
+        ],
+        "RepoDigests": [
+            "ubuntu@sha256:eb1392bbdde63147bc2b4ff1a4053dcfe6d15e4dfd3cce29e9b9f52a4f88bc74"
+        ],
+        "Parent": "",
+        "Comment": "",
+        "Created": "2022-08-02T01:30:42.983551684Z",
+        "Container": "7ad563d9fd85ec26deaa0bc1af201857490eba43e7f9278b92197abd240b1023",
+        "ContainerConfig": {
+            "Hostname": "7ad563d9fd85",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "#(nop) ",
+                "CMD [\"bash\"]"
+            ],
+            "Image": "sha256:28f9af4b363b26946d747488a48a9c19743bd99d6737a248fbcf09f7aa6cfd06",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "DockerVersion": "20.10.12",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "bash"
+            ],
+            "Image": "sha256:28f9af4b363b26946d747488a48a9c19743bd99d6737a248fbcf09f7aa6cfd06",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": null
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 63148618,
+        "VirtualSize": 63148618,
+        "GraphDriver": {
+            "Data": {
+                "MergedDir": "/var/lib/docker/overlay2/1c4e8a3847c338866f58dfca516f59575c4c12c8bc4b5d86f80e4df4dd0e8fd3/merged",
+                "UpperDir": "/var/lib/docker/overlay2/1c4e8a3847c338866f58dfca516f59575c4c12c8bc4b5d86f80e4df4dd0e8fd3/diff",
+                "WorkDir": "/var/lib/docker/overlay2/1c4e8a3847c338866f58dfca516f59575c4c12c8bc4b5d86f80e4df4dd0e8fd3/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:e722d396f503c712107acad2a081b07e33e73d6286c43f58234f69345a216918"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    }
+]
+</pre>
