@@ -232,7 +232,7 @@ b1936251f773   ubuntu:18.04                                     "/bin/bash"     
 </pre>
 
 
-## Deleting an exited container 
+## ⛹️‍♂️ Lab - Deleting an exited container 
 ```
 docker rm <container-id>
 docker rm <container-name>
