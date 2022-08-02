@@ -171,3 +171,27 @@ Share images, automate workflows, and more with a free Docker ID:
 For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 </pre>
+
+
+## Creating an ubuntu container in interactive(foreground) mode
+```
+docker run -it --name ubuntu1 --hostname ubuntu1 ubuntu:18.04 /bin/bash
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker run -it --name ubuntu1 --hostname ubuntu1 ubuntu:18.04 /bin/bash</b>
+Unable to find image 'ubuntu:18.04' locally
+18.04: Pulling from library/ubuntu
+22c5ef60a68e: Pull complete 
+Digest: sha256:eb1392bbdde63147bc2b4ff1a4053dcfe6d15e4dfd3cce29e9b9f52a4f88bc74
+Status: Downloaded newer image for ubuntu:18.04
+root@ubuntu1:/# <b>ls</b>
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@ubuntu1:/# <b>hostname</b>
+ubuntu1
+root@ubuntu1:/# <b>hostname -i</b>
+172.17.0.3
+root@ubuntu1:/# <b>exit</b>
+exit
+</pre>
