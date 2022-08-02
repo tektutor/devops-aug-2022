@@ -259,7 +259,7 @@ b1936251f773   ubuntu:18.04                                     "/bin/bash"     
 70b16768a7d7   ubuntu:18.04                                     "/bin/bash"              13 minutes ago   Up 7 minutes   
 </pre>
 
-## ⛹️‍♀️ Lab - Deleting a running container gracefully
+## ⛹️‍♀️ Lab - Deleting a running container graciously
 
 Before removing a running container, it must be stopped to gracefully terminate it.
 ```
