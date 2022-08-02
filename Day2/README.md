@@ -679,3 +679,53 @@ Bye
 sh-4.4# <b>exit</b>
 exit
 </pre>
+
+## Externally storing data using Volume Mounting
+<pre>
+[jegan@tektutor ~]$ <b>docker run -d --name db --hostname db -e MYSQL_ROOT_PASSWORD=root -v /tmp/mysql:/var/lib/mysql mysql:latest</b>
+541fdd3499be05f521aa4e69e246ef4106377d66ebac66ca7ebbfa303c136d4c
+[jegan@tektutor ~]$ <b>docker exec -it db sh</b>
+sh-4.4# <b>mysql -u root -p</b>
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> <b>SHOW DATABASES;</b>
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| tektutor           |
++--------------------+
+5 rows in set (0.01 sec)
+
+mysql> USE tektutor;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> <b>SELECT * FROM training;</b>
++------+--------+----------+
+| id   | name   | duration |
++------+--------+----------+
+|    1 | DevOps | 5 Days   |
++------+--------+----------+
+1 row in set (0.00 sec)
+
+mysql> <b>exit</b>
+Bye
+sh-4.4# <b>exit</b>
+exit
+</pre>
