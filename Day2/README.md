@@ -116,3 +116,13 @@ sudo usermod -aG docker $USER
 newgrp docker
 docker images
 ```
+
+## Listing docker images from Local docker registry
+```
+docker images
+```
+
+## Downloading image from Docker Hub website to Local Docker Registry
+```
+docker pull hello-world:latest
+```
