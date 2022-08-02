@@ -249,7 +249,7 @@ b1936251f773   ubuntu:18.04                                     "/bin/bash"     
 70b16768a7d7   ubuntu:18.04                                     "/bin/bash"              12 minutes ago   Up 6 minutes                                                                                ubuntu1
 5bc5fdebc968   hello-world:latest                               "/hello"                 20 minutes ago   Exited (0) 20 minutes ago                                                                   happy_cannon
 303ea4ccc524   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago     Up 3 hours                  0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
-[jegan@tektutor ~]$ docker rm optimistic_galois
+[jegan@tektutor ~]$ <b>docker rm optimistic_galois</b>
 optimistic_galois
 [jegan@tektutor ~]$ <b>docker ps -a</b>
 CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS                      PORTS                                                           NAMES
