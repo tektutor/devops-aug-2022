@@ -240,7 +240,7 @@ docker rm <container-name>
 
 Expected output
 <pre>
-[jegan@tektutor ~]$ <b>docker ps -a<b>
+[jegan@tektutor ~]$ <b>docker ps -a</b>
 CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS                      PORTS                                                           NAMES
 a1d065f81a3b   ubuntu:18.04                                     "bash"                   8 seconds ago    Exited (0) 7 seconds ago                                                                    optimistic_galois
 768963fc1186   ubuntu:18.04                                     "/bin/bash"              6 minutes ago    Up 6 minutes                                                                                ubuntu4
