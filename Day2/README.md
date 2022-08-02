@@ -730,7 +730,7 @@ sh-4.4# <b>exit</b>
 exit
 </pre>
 
-## Port Forwading - Setting up a LoadBalancer using nginx
+## ⛹️‍♂️ Lab - Port Forwading - Setting up a LoadBalancer using nginx
 ```
 docker run -d --name web1 --hostname web1 nginx:1.18
 docker run -d --name web2 --hostname web2 nginx:1.18
