@@ -477,3 +477,12 @@ It would take some time to load the server.  Once it is ready, the JFrog Artifac
 
 When it prompts for credentials, type 'admin' as user and 'password' for password.  The first time you login, it will ask you to change the password, I changed it to 'Admin@123'
 
+
+## Build and install the multi-module project artifacts into Local Repository
+```
+cd ~/devops-aug-2022
+git pull
+
+cd Day1/CRM
+mvn clean install
+```
