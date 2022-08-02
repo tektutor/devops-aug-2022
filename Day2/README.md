@@ -674,7 +674,7 @@ mysql> <b>SELECT * FROM training;</b>
 +------+----------------------------+----------+
 3 rows in set (0.00 sec)
 
-mysql> <b>exit<b>
+mysql> <b>exit</b>
 Bye
 sh-4.4# <b>exit</b>
 exit
