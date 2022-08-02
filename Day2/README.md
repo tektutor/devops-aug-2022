@@ -586,3 +586,89 @@ Expected output
     }
 ]
 </pre>
+
+## Creating a mysql db container
+```
+docker run -d --name db --hostname db -e MYSQL_ROOT_PASSWORD=root mysql:latest
+```
+
+### Getting inside the mysql db container and connecting to mysql prompt
+When it prompts for password, type 'root' without quotes.
+```
+docker exec -it db /bin/sh
+mysql -u root -p
+
+SHOW DATABASES;
+CREATE DATABASE tektutor;
+USE tektutor;
+CREATE TABLE training ( id int, name VARCHAR(50), duration VARCHAR(50) );
+
+INSERT INTO TABLE training VALUES ( 1, "DevOps", "5 Days" );
+INSERT INTO training VALUES ( 2, "Microservices with Python", "5 Days" );
+INSERT INTO training VALUES ( 3, "Advanced Scala Programming", "5 Days" );
+
+SELECT * FROM training;
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ docker run -d --name db --hostname db -e MYSQL_ROOT_PASSWORD=root mysql:latest
+c88dcd3b73d1a4904b97a23fe82dca4c5f6cbb632101493de7e2f2c8dd68abc8
+[jegan@tektutor ~]$ docker exec -it db /bin/sh
+sh-4.4# mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.01 sec)
+
+mysql> CREATE DATABASE tektutor;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> USE tektutor;
+Database changed
+mysql> CREATE TABlE training ( id int, name VARCHAR(50), duration VARCHAR(50) );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO training VALUES ( 1, "DevOps", "5 Days" );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO training VALUES ( 2, "Microservices with Python", "5 Days" );
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO training VALUES ( 3, "Advanced Scala Programming", "5 Days" );
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM training;
++------+----------------------------+----------+
+| id   | name                       | duration |
++------+----------------------------+----------+
+|    1 | DevOps                     | 5 Days   |
+|    2 | Microservices with Python  | 5 Days   |
+|    3 | Advanced Scala Programming | 5 Days   |
++------+----------------------------+----------+
+3 rows in set (0.00 sec)
+
+mysql> <b>exit<b>
+Bye
+sh-4.4# <b>exit</b>
+exit
+</pre>
