@@ -729,3 +729,82 @@ Bye
 sh-4.4# <b>exit</b>
 exit
 </pre>
+
+## Port Forwading - Setting up a LoadBalancer using nginx
+```
+docker run -d --name web1 --hostname web1 nginx:1.18
+docker run -d --name web2 --hostname web2 nginx:1.18
+docker run -d --name web3 --hostname web3 nginx:1.18
+
+docker run -d --name lb --hostname lb -p 80:80 nginx:1.18
+```
+
+Let's customize the web1, web2 and web3 html pages
+```
+echo "Server 1" > index.html
+docker cp index.html web1:/usr/share/nginx/html/index.html
+
+echo "Server 2" > index.html
+docker cp index.html web2:/usr/share/nginx/html/index.html
+
+echo "Server 3" > index.html
+docker cp index.html web3:/usr/share/nginx/html/index.html
+```
+
+Let's configure the lb container to work like a Load balancer
+
+Let's create a nginx.conf file with the below content
+<pre>
+error_log  /var/log/nginx/error.log notice;
+pid        /var/run/nginx.pid;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    upstream servers {
+        server  172.17.0.2:80;
+        server  172.17.0.3:80;
+        server  172.17.0.4:80;
+    }
+    server {
+        location / {
+            proxy_pass http://servers;
+        }
+    }
+}
+</pre>
+
+In the above file, 
+<pre>
+172.17.0.2 - is the IP Address of my web1 nginx container
+172.17.0.3 - is the IP Address of my web2 nginx container
+172.17.0.4 - is the IP Address of my web3 nginx container
+</pre>
+
+You may to replace those IP with your web1, web2 and web3 containers respectively.
+
+Let's copy the load balancer configuration into the lb container
+```
+docker cp nginx.conf lb:/etc/nginx/nginx.conf
+```
+
+Let's restart lb container to apply the lb config changes
+```
+docker restart lb
+```
+
+See if the lb container is up and running post the config changes
+```
+docker ps
+```
+
+Now you may test the lb setup
+```
+curl localhost
+curl localhost
+curl localhost
+```
+
+Each time, you curl localhost, you will get output coming from web1,web2 and web3 in a round-robin fashion.  You may also try substituing the localhost with your RPS Lab machine IP Address from the web browser.
