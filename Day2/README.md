@@ -592,7 +592,7 @@ Expected output
 docker run -d --name db --hostname db -e MYSQL_ROOT_PASSWORD=root mysql:latest
 ```
 
-### Getting inside the mysql db container and connecting to mysql prompt
+### ⛹️‍♀️ Lab - Getting inside the mysql db container and connecting to mysql prompt
 When it prompts for password, type 'root' without quotes.
 ```
 docker exec -it db /bin/sh
@@ -612,10 +612,10 @@ SELECT * FROM training;
 
 Expected output
 <pre>
-[jegan@tektutor ~]$ docker run -d --name db --hostname db -e MYSQL_ROOT_PASSWORD=root mysql:latest
+[jegan@tektutor ~]$ <b>docker run -d --name db --hostname db -e MYSQL_ROOT_PASSWORD=root mysql:latest</b>
 c88dcd3b73d1a4904b97a23fe82dca4c5f6cbb632101493de7e2f2c8dd68abc8
-[jegan@tektutor ~]$ docker exec -it db /bin/sh
-sh-4.4# mysql -u root -p
+[jegan@tektutor ~]$ <b>docker exec -it db /bin/sh</b>
+sh-4.4# <b>mysql -u root -p</b>
 Enter password: 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 8
@@ -629,7 +629,7 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-mysql> SHOW DATABASES;
+mysql> <b>SHOW DATABASES;</b>
 +--------------------+
 | Database           |
 +--------------------+
@@ -640,24 +640,24 @@ mysql> SHOW DATABASES;
 +--------------------+
 4 rows in set (0.01 sec)
 
-mysql> CREATE DATABASE tektutor;
+mysql> <b>CREATE DATABASE tektutor;</b>
 Query OK, 1 row affected (0.01 sec)
 
-mysql> USE tektutor;
+mysql> <b>USE tektutor;</b>
 Database changed
-mysql> CREATE TABlE training ( id int, name VARCHAR(50), duration VARCHAR(50) );
+mysql> <b>CREATE TABlE training ( id int, name VARCHAR(50), duration VARCHAR(50) );</b>
 Query OK, 0 rows affected (0.03 sec)
 
-mysql> INSERT INTO training VALUES ( 1, "DevOps", "5 Days" );
+mysql> <b>INSERT INTO training VALUES ( 1, "DevOps", "5 Days" );</b>
 Query OK, 1 row affected (0.01 sec)
 
-mysql> INSERT INTO training VALUES ( 2, "Microservices with Python", "5 Days" );
+mysql> <b>INSERT INTO training VALUES ( 2, "Microservices with Python", "5 Days" );</b>
 Query OK, 1 row affected (0.00 sec)
 
-mysql> INSERT INTO training VALUES ( 3, "Advanced Scala Programming", "5 Days" );
+mysql> <b>INSERT INTO training VALUES ( 3, "Advanced Scala Programming", "5 Days" );</b>
 Query OK, 1 row affected (0.00 sec)
 
-mysql> SELECT * FROM training;
+mysql> <b>SELECT * FROM training;</b>
 +------+----------------------------+----------+
 | id   | name                       | duration |
 +------+----------------------------+----------+
