@@ -301,3 +301,42 @@ b1936251f773   ubuntu:18.04                                     "/bin/bash"     
 22554db319c7   ubuntu:18.04                                     "/bin/bash"              23 minutes ago   Up 23 minutes                                                                   ubuntu2
 303ea4ccc524   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago     Up 4 hours      0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
 </pre>
+
+## Starting, Stopping, Restart and deleting multiple containers at one shot
+<pre>
+[jegan@tektutor ~]$ <b>docker ps</b>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS          PORTS                                                           NAMES
+b1936251f773   ubuntu:18.04                                     "/bin/bash"              29 minutes ago   Up 29 minutes                                                                   ubuntu3
+22554db319c7   ubuntu:18.04                                     "/bin/bash"              29 minutes ago   Up 29 minutes                                                                   ubuntu2
+303ea4ccc524   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago     Up 4 hours      0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+[jegan@tektutor ~]$ <b>docker stop ubuntu2</b>
+ubuntu2
+[jegan@tektutor ~]$ <b>docker start ubuntu2</b>
+ubuntu2
+[jegan@tektutor ~]$ <b>docker ps</b>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS          PORTS                                                           NAMES
+b1936251f773   ubuntu:18.04                                     "/bin/bash"              29 minutes ago   Up 29 minutes                                                                   ubuntu3
+22554db319c7   ubuntu:18.04                                     "/bin/bash"              29 minutes ago   Up 7 seconds                                                                    ubuntu2
+303ea4ccc524   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago     Up 4 hours      0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+[jegan@tektutor ~]$ <b>docker stop ubuntu2 ubuntu3 artifactory</b>
+ubuntu2
+ubuntu3
+artifactory
+[jegan@tektutor ~]$ <b>docker start ubuntu2 ubuntu3 artifactory</b>
+ubuntu2
+ubuntu3
+artifactory
+[jegan@tektutor ~]$ <b>docker rm -f ubuntu2 ubuntu3</b> 
+ubuntu2
+ubuntu3
+[jegan@tektutor ~]$ <b>docker ps -a</b>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED          STATUS                      PORTS                                                           NAMES
+5bc5fdebc968   hello-world:latest                               "/hello"                 43 minutes ago   Exited (0) 43 minutes ago                                                                   happy_cannon
+303ea4ccc524   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago     Up 15 seconds               0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+[jegan@tektutor ~]$ <b>docker restart artifactory</b>
+artifactory
+[jegan@tektutor ~]$ <b>docker ps</b>
+CONTAINER ID   IMAGE                                            COMMAND                  CREATED        STATUS         PORTS                                                           NAMES
+303ea4ccc524   docker.bintray.io/jfrog/artifactory-oss:latest   "/entrypoint-artifac…"   21 hours ago   Up 4 seconds   0.0.0.0:8081-8082->8081-8082/tcp, :::8081-8082->8081-8082/tcp   artifactory
+</pre>
+
