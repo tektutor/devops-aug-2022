@@ -592,6 +592,13 @@ Expected output
 docker run -d --name db --hostname db -e MYSQL_ROOT_PASSWORD=root mysql:latest
 ```
 
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker run -d --name db --hostname db -e MYSQL_ROOT_PASSWORD=root mysql:latest</b>
+c88dcd3b73d1a4904b97a23fe82dca4c5f6cbb632101493de7e2f2c8dd68abc8
+</pre>
+
+
 ### ⛹️‍♀️ Lab - Getting inside the mysql db container and connecting to mysql prompt
 When it prompts for password, type 'root' without quotes.
 ```
