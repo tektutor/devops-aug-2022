@@ -173,7 +173,7 @@ For more examples and ideas, visit:
 </pre>
 
 
-## Creating an ubuntu container in interactive(foreground) mode
+## ⛹️‍♀️ Lab - Creating an ubuntu container in interactive(foreground) mode
 ```
 docker run -it --name ubuntu1 --hostname ubuntu1 ubuntu:18.04 /bin/bash
 ```
