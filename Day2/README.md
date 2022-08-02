@@ -258,3 +258,22 @@ b1936251f773   ubuntu:18.04                                     "/bin/bash"     
 22554db319c7   ubuntu:18.04                                     "/bin/bash"              7 minutes ago    Up 7 minutes                                                                                ubuntu2
 70b16768a7d7   ubuntu:18.04                                     "/bin/bash"              13 minutes ago   Up 7 minutes   
 </pre>
+
+## Deleting a running container
+
+Before removing a running container, it must be stopped to gracefully terminate it.
+```
+docker rm ubuntu1
+docker stop ubuntu1
+docker rm ubuntu1
+```
+
+Expected output
+<pre>
+[jegan@tektutor ~]$ <b>docker rm ubuntu1</b>
+Error response from daemon: You cannot remove a running container 70b16768a7d7d0e96c1e9a30efe9751de62148a2a10ab3b4e2ab101e463e80d7. Stop the container before attempting removal or force remove
+[jegan@tektutor ~]$ <b>docker stop ubuntu1</b>
+ubuntu1
+[jegan@tektutor ~]$ <b>docker rm ubuntu1</b>
+ubuntu1
+</pre>
