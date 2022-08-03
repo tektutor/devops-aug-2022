@@ -1056,3 +1056,49 @@ jegan@dell-precision-7670:~/devops-aug-2022/Day3/Ansible$ ls
 <b>businesslayer-1.0.jar</b>  download-artifacts-from-artifactory-playbook.yml  index.html                  ping.yml
 default                hosts                                             install-nginx-playbook.yml
 </pre>
+
+## Ansible Vault
+- helps you store and retrieve sensitive login credentials in a secured password protected encrypted file
+
+```
+ansible-vault create credentials.yml
+```
+When it prompts for password, type root@123 or your preferred password.
+Type the below in the file and save it
+<pre>
+username: root
+password: Admin@123
+</pre>
+
+Once the vault file is created, see the content of the vault protected file
+```
+cat credentials.yml
+```
+Expected output
+<pre>
+$ANSIBLE_VAULT;1.1;AES256
+62353163643766643137396334326639363862646534616461623965613763616230393664643238
+6330393937383336383965363664616234386639656431390a383838663762343461393936613134
+66333564613362353564353763663764333165623338323239346232316137356265363966656437
+3934353837636461640a303131363764653163336265333132396335333730623463376339396434
+61643666363436313235396163356365663537666561373736656436336465316130623939333762
+6464666336313266383465636262353333643535383733666632
+</pre>
+
+You may optionally edit, decrypt, encrypt the file using the below commands
+```
+ansible-vault decrypt credentials.yml
+ansible-vault encrypt credentials.yml
+ansible-vault view credentials.yml
+```
+The above commands will prompting for password that you supplied while creating the vault file.
+If you forget the the vault password, forget your vault.
+
+## Running the playbook that retrievs JFrog login credentials from an Ansible vault protected file
+```
+cd ~/devops-aug-2022
+git pull
+
+cd Day3/Ansible
+ansible-playbook download-artifacts-from-artifactory-playbook.yml --ask-vault-pass
+```
