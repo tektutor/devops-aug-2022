@@ -786,3 +786,38 @@ root@ubuntu2:~# <b>exit</b>
 logout
 Connection to localhost closed.
 </pre>
+
+
+## Writing your first static inventory
+
+The static inventory file is a text file with connection details to the ansible nodes
+<pre>
+jegan@dell-precision-7670:~/devops-aug-2022/Day3/Ansible$ cat hosts 
+[all]
+ubuntu1 ansible_user=root ansible_port=2001 ansible_host=localhost ansible_private_key_file=~/.ssh/id_rsa
+ubuntu2 ansible_user=root ansible_port=2001 ansible_host=localhost ansible_private_key_file=~/.ssh/id_rsa
+</pre>
+
+Running the ansible ad-hoc ping
+```
+ansible -i hosts all -m ping
+```
+
+Expected output
+<pre>
+jegan@dell-precision-7670:~/devops-aug-2022/Day3/Ansible$ <b>ansible -i hosts all -m ping</b>
+ubuntu1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+ubuntu2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+</pre>
