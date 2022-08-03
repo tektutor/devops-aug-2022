@@ -693,3 +693,17 @@ Removing intermediate container b01adb5eb1ef
 Successfully built b00c3100ccb2
 Successfully tagged tektutor/ubuntu-ansible-node:1.0
 </pre>
+
+## See if the ubuntu custom image is present on your system
+```
+docker images
+```
+
+Expected output
+<pre>
+jegan@dell-precision-7670:~/devops-aug-2022/Day3/CustomDockerImagesForAnsibleNodes/ubuntu$ <b>docker images</b>
+REPOSITORY                                TAG       IMAGE ID       CREATED              SIZE
+<b>tektutor/ubuntu-ansible-node              1.0       b00c3100ccb2   About a minute ago   220MB</b>
+docker.bintray.io/jfrog/artifactory-oss   latest    031acd2d33c7   3 weeks ago          1.19GB
+ubuntu                                    16.04     b6f507652425   11 months ago        135MB
+</pre>
