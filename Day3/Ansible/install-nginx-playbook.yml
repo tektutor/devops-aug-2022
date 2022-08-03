@@ -1,5 +1,9 @@
 - name: This playbook will install, configure and deploy custom web page into Ubuntu ansible nodes
   hosts: all
+  vars:
+  - greeting_msg: Welcome to DevOps!
+  - provisioner_tool: Docker
+  - conf_mgr_tool: Ansible
   tasks:
   - name: Install nginx in Ubuntu node
     apt: name=nginx state=latest update_cache=yes
@@ -8,7 +12,7 @@
     file: path=/var/html state=directory mode=0755
 
   - name: Deploy our custom html page
-    copy: src=index.html dest=/var/www/index.html
+    template: src=index.html dest=/var/www/index.html
 
   - name: Configure nginx to use our custom html folder
     copy: src=default dest=/etc/nginx/sites-available/default
