@@ -936,3 +936,41 @@ OPTIONS (= is mandatory):
         type: str
         added in: version 2.3 of ansible-core
 </pre>
+
+## Writing a simple playbook
+The playbook looks as below
+<pre>
+- name: Demonstrate writing a simple Ansible playbook
+  hosts: all
+  tasks:
+  - name: Ping ansible ubuntu node
+    ping:
+</pre>
+
+### Executing the playbook
+```
+cd ~/devops-aug-2022
+git pull
+
+cd Day3/Ansible
+ansible-playbook -i hosts ping.yml
+```
+
+Expected output
+<pre>
+jegan@dell-precision-7670:~/devops-aug-2022/Day3/Ansible$ <b>ansible-playbook -i hosts ping.yml</b> 
+
+PLAY [Demonstrate writing a simple Ansible playbook] ****************************************************
+
+TASK [Gathering Facts] **********************************************************************************
+ok: [ubuntu1]
+ok: [ubuntu2]
+
+TASK [Ping ansible ubuntu node] *************************************************************************
+ok: [ubuntu2]
+ok: [ubuntu1]
+
+PLAY RECAP **********************************************************************************************
+ubuntu1                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0 
+</pre>
