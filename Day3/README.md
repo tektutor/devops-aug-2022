@@ -1025,3 +1025,34 @@ ubuntu2                    : ok=6    changed=4    unreachable=0    failed=0    s
 curl http://localhost:8001
 curl http://localhost:8002
 ```
+
+## Execute this playbook to download artifacts from JFrog Artifactory
+```
+cd ~/devops-aug-2022
+git pull
+
+cd Day3/Ansible
+ansible-playbook download-artifacts-from-artifactory-playbook.yml
+```
+
+Expected output
+<pre>
+jegan@dell-precision-7670:~/devops-aug-2022/Day3/Ansible$ <b>ansible-playbook download-artifacts-from-artifactory-playbook.yml</b>
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [This playbook downloads artifacts from JFrog Artifactory] ***************************************************************
+
+TASK [Gathering Facts] ********************************************************************************************************
+ok: [localhost]
+
+TASK [Download artifact from JFrog artifactory] *******************************************************************************
+changed: [localhost]
+
+PLAY RECAP ********************************************************************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+jegan@dell-precision-7670:~/devops-aug-2022/Day3/Ansible$ ls
+<b>businesslayer-1.0.jar</b>  download-artifacts-from-artifactory-playbook.yml  index.html                  ping.yml
+default                hosts                                             install-nginx-playbook.yml
+</pre>
