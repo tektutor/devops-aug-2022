@@ -189,3 +189,84 @@ ansible [core 2.13.2]
   jinja version = 3.1.2
   libyaml = True
 </pre>
+
+
+## Configuration Management Tool
+- helps us in automating software installation, uninstallation, upgrade and configuration
+- Examples
+   - Ansible
+   - Chef ( Ruby )
+   - Puppet ( Ruby )
+   - Salt/SaltStack 
+
+## Ansible 
+- comes in 2 flavors
+  1. Ansible Core - OpenSource, CLI, Free for personal and commercial use 
+  2. RedHat Ansible Tower - Enterprise Product ( Licensed Software )
+- devoloped in Python 
+- developed by Ansible Inc organization
+- Michael Deehan is the person who founded the Ansible Inc organization
+    - Former RedHat Employee
+    - he was on a configuration tool as an Architect
+    - the product he was was de-commissioned
+    - He quit Red-Hat and started Ansible Inc
+    - He made this Ansible Core as OpenSource product
+- Domain Specific Language Choice (DSL)
+     - YAML ( Yet Another Markup Language )
+- agentless
+- Easy to learn
+- RedHat acquired Ansible Inc
+- IBM acquired RedHat
+- is a RedHat product ( IBM company )
+
+# How developers can use Ansible ?
+- developers can use Ansible to automate Developer setup
+
+# How QA can use Ansible ?
+- QA Engineers can use Ansible to automate QA Setup using Playbook
+
+# System Administrators
+- will be able automate Pre-stating, Staging, Production environments
+- will be able to automate Production environment in on-prem or cloud
+
+## What is Ansible Controller Machine (ACM)?
+- is the machine where Ansible is installed
+- this is the machine where you will write Playbook
+- Playbook is the automation script(yaml) file that instructions on what to install on the Ansible Nodes
+- has to be Linux machine 
+- Windows machines can't be a ACM
+
+## Ansible Node
+- are servers
+- it could be a Windows Server, Unix/Linux/Mac Servers
+- could be on-prem servers, cloud machine or private/public cloud machines
+- CISCO switches/routers also can be considered as Ansible Node
+- Unix/Linux Nodes
+   - Pre-requisites
+       1. Python should be present/installed
+       2. SSH Server should be there
+- Windows Nodes
+   - Pre-requisites
+     1. .Net Framework
+     2. PowerShell should be supported
+     
+## What is Ansible Module?
+- Ansible has modules to 
+   - copy files from ACM to Ansible Node
+   - copy files from Ansible Node to ACM 
+   - install/uninstall/upgrade softwares
+   - restart/boot the servers
+   - run shell scripts
+   - run external third-party application
+   - manage AWS resources
+   - manage Azure resources
+   - manage GCP resources
+- Unix/Linux/Mac
+  Ansible Modules are nothing but Python scripts
+  When you install Ansible, it also installs all the necessary Ansible Modules
+- Windows
+  Ansible Modules are PowerShell scripts
+  
+- in rare cases, in cases the existing Ansible modules can't do what you are trying to automate
+   - you may write/develop your own Custom Ansible Module using Python ( unix/linux/mac )
+   - you may write/develop your won Custom Ansible Module using Powershell ( windows ansible nodes )
