@@ -974,6 +974,3 @@ PLAY RECAP *********************************************************************
 ubuntu1                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0 
 </pre>
-
-
-## Dummy change
