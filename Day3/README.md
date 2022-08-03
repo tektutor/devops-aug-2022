@@ -1100,5 +1100,5 @@ cd ~/devops-aug-2022
 git pull
 
 cd Day3/Ansible
-ansible-playbook download-artifacts-from-artifactory-playbook.yml
+ansible-playbook download-artifacts-from-artifactory-playbook.yml --ask-vault-pass
 ```
