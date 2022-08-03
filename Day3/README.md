@@ -707,3 +707,21 @@ REPOSITORY                                TAG       IMAGE ID       CREATED      
 docker.bintray.io/jfrog/artifactory-oss   latest    031acd2d33c7   3 weeks ago          1.19GB
 ubuntu                                    16.04     b6f507652425   11 months ago        135MB
 </pre>
+
+## Let's create two ansible node containers
+```
+docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ubuntu-ansible-node:1.0
+docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ubuntu-ansible-node:1.0
+```
+
+Expected output
+<pre>
+jegan@dell-precision-7670:~$ <b>docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ubuntu-ansible-node:1.0 </b>
+59cfd27397a3d4ef73140120cd5d26ad6265df1041dd41b503c8791650bb2703
+jegan@dell-precision-7670:~$ <b>docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ubuntu-ansible-node:1.0</b> 
+f8f02bb807cd971113b369d150a1761d2d504d8e9a274b97d4ad1293e40e7b9e
+jegan@dell-precision-7670:~$ <b>docker ps</b>
+CONTAINER ID   IMAGE                              COMMAND               CREATED          STATUS          PORTS                                                                          NAMES
+f8f02bb807cd   tektutor/ubuntu-ansible-node:1.0   "/usr/sbin/sshd -D"   2 seconds ago    Up 1 second     0.0.0.0:2002->22/tcp, :::2002->22/tcp, 0.0.0.0:8002->80/tcp, :::8002->80/tcp   ubuntu2
+59cfd27397a3   tektutor/ubuntu-ansible-node:1.0   "/usr/sbin/sshd -D"   17 seconds ago   Up 16 seconds   0.0.0.0:2001->22/tcp, :::2001->22/tcp, 0.0.0.0:8001->80/tcp, :::8001->80/tcp   ubuntu1
+</pre>
