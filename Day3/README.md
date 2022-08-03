@@ -734,10 +734,10 @@ f8f02bb807cd   tektutor/ubuntu-ansible-node:1.0   "/usr/sbin/sshd -D"   2 second
 
 ## Testing the ansible node containers for SSH connection with public key
 ```
-ssh -p 2001 root@locahost
+ssh -p 2001 root@localhost
 exit
 
-ssh -p 2001 root@locahost
+ssh -p 2001 root@localhost
 exit
 ```
 
