@@ -270,3 +270,28 @@ ansible [core 2.13.2]
 - in rare cases, in cases the existing Ansible modules can't do what you are trying to automate
    - you may write/develop your own Custom Ansible Module using Python ( unix/linux/mac )
    - you may write/develop your won Custom Ansible Module using Powershell ( windows ansible nodes )
+
+## Create public/private key pair
+<pre>
+jegan@dell-precision-7670:~/devops-aug-2022/Day3/CustomDockerImagesForAnsibleNodes/ubuntu$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/jegan/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/jegan/.ssh/id_rsa
+Your public key has been saved in /home/jegan/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:nP5lXBj2y8jwubovzN6lMICFSCRDZALPQ32xpazphKg jegan@dell-precision-7670
+The key's randomart image is:
++---[RSA 3072]----+
+|+oBoo ...        |
+| * +.o.=         |
+|  + ..= .   o    |
+| . o o + . . +   |
+|. . + . S . . o  |
+|.  o   . . = = . |
+|E   .   .oo O +  |
+|         .+* +   |
+|         .===    |
++----[SHA256]-----+
+</pre>
