@@ -1,0 +1,5 @@
+- name: Demonstrates passing and retrieving extra variable from Ansible playbook
+  hosts: localhost
+  tasks:
+  - name: Print extra variable supplied from command line
+    debug: var=greeting_msg
