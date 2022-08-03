@@ -60,14 +60,14 @@
 - For example - Podman/Docker they are Container Engines
 - Container Engines provide high-level user-friendly commands to create and manage containers
 - end-users need not have to know know low-level kernel knowledge to manage containers
-- depends Container Runtimes to manage Containers
+- depends on Container Runtimes to manage Containers
   - create containers
   - listing containers
   - deleting containers
   - getting inside a container
   - start/stop/restarting containers
 - used by end-users
-- end-users don't tend to use Container Runtimes directly as they are low-level
+- end-users don't tend to use Container Runtime directly as they are low-level
 - Containers engines depends on other tools to manage Container Images
    - Skopio
    - Buildah
@@ -75,6 +75,9 @@
 ## What is a Container Runtime?
 - are used by Container Engines
 - Container Runtimes aren't used by end-users
+- For example
+    - runc is the Container Runtime used by Docker Container Engine
+
 ## Docker Overview
 - is a Container Engine developed by Docker Inc organization 
 - is developed using Google Go programming language
@@ -88,7 +91,7 @@
 
 ## Container Image
 - a blueprint of running container
-- software can be installed and configured on the image level, when containers are created out of an image, the container will have all the tools pre-installed on the image
+- softwares can be installed and configured on the image level, when containers are created out of an image, the container will have all the tools pre-installed on the image
 - image is like an ISO OS Image
 - Developer point of view, it is like a Class
 
