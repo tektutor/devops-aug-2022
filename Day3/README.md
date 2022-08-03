@@ -1093,3 +1093,12 @@ ansible-vault view credentials.yml
 ```
 The above commands will prompting for password that you supplied while creating the vault file.
 If you forget the the vault password, forget your vault.
+
+## Running the playbook that retrievs JFrog login credentials from an Ansible vault protected file
+```
+cd ~/devops-aug-2022
+git pull
+
+cd Day3/Ansible
+ansible-playbook download-artifacts-from-artifactory-playbook.yml
+```
