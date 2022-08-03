@@ -800,6 +800,10 @@ ubuntu2 ansible_user=root ansible_port=2001 ansible_host=localhost ansible_priva
 
 Running the ansible ad-hoc ping
 ```
+cd ~/devops-aug-2022
+git pull
+
+cd Day3/Ansible
 ansible -i hosts all -m ping
 ```
 
