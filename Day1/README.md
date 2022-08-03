@@ -1,5 +1,12 @@
 # Day 1
 
+## Cloning this repo
+```
+cd ~
+git clone https://github.com/tektutor/devops-aug-2022.git
+cd devops-aug-2022
+```
+
 ## Installing JDK 11 in CentOS 7.x
 ```
 sudo yum install -y epel-release
