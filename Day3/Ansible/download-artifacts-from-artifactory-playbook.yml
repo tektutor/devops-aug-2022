@@ -1,0 +1,10 @@
+- name: This playbook downloads artifacts from JFrog Artifactory
+  hosts: localhost
+
+  tasks:
+  - name: Download artifact from JFrog artifactory
+    get_url:
+      url: http://localhost:8082/artifactory/tektutor/org/tektutor/businesslayer/1.0/businesslayer-1.0.jar
+      dest: .
+      url_username: admin
+      url_password: password
