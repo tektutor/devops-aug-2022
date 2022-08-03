@@ -737,7 +737,7 @@ f8f02bb807cd   tektutor/ubuntu-ansible-node:1.0   "/usr/sbin/sshd -D"   2 second
 ssh -p 2001 root@localhost
 exit
 
-ssh -p 2001 root@localhost
+ssh -p 2002 root@localhost
 exit
 ```
 
