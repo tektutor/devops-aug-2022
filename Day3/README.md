@@ -974,3 +974,48 @@ PLAY RECAP *********************************************************************
 ubuntu1                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0 
 </pre>
+
+
+## Installing nginx web server into the Ubuntu Ansible Node Containers using Ansible playbook
+```
+cd ~/devops-aug-2022
+git pull
+
+cd Day3/Ansible
+ansible-playbook -i hosts install-nginx-playbook.yml
+```
+
+Expected output
+<pre>
+jegan@dell-precision-7670:~/devops-aug-2022/Day3/Ansible$ <b>ansible-playbook -i hosts install-nginx-playbook.yml</b>
+
+PLAY [This playbook will install, configure and deploy custom web page into Ubuntu ansible nodes] *******
+
+TASK [Gathering Facts] **********************************************************************************
+ok: [ubuntu2]
+ok: [ubuntu1]
+
+TASK [Install nginx in Ubuntu node] *********************************************************************
+ok: [ubuntu1]
+ok: [ubuntu2]
+
+TASK [Create the custom html folder] ********************************************************************
+changed: [ubuntu1]
+changed: [ubuntu2]
+
+TASK [Deploy our custom html page] **********************************************************************
+changed: [ubuntu1]
+changed: [ubuntu2]
+
+TASK [Configure nginx to use our custom html folder] ****************************************************
+changed: [ubuntu2]
+changed: [ubuntu1]
+
+TASK [Restart the nginx service] ************************************************************************
+changed: [ubuntu2]
+changed: [ubuntu1]
+
+PLAY RECAP **********************************************************************************************
+ubuntu1                    : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ubuntu2                    : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
+</pre>
