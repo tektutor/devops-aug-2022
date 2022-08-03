@@ -9,7 +9,7 @@ pip3 install ansible
 
 Expected output
 <pre>
-jegan@dell-precision-7670:~/devops-aug-2022$ <b>sudo apt install python3-pip</b>
+jegan@dell-precision-7670:~/devops-aug-2022$ sudo apt install python3-pip
 [sudo] password for jegan: 
 Reading package lists... Done
 Building dependency tree       
@@ -178,7 +178,7 @@ ansible --version
 
 Expected output
 <pre>
-jegan@dell-precision-7670:~/devops-aug-2022$ <b>ansible --version</b>
+jegan@dell-precision-7670:~/devops-aug-2022$ ansible --version
 ansible [core 2.13.2]
   config file = None
   configured module search path = ['/home/jegan/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
@@ -307,7 +307,7 @@ cp ~/.ssh/id_rsa.pub authorized_keys
 
 ## Let's build our custom ubuntu ansible node Docker image
 <pre>
-jegan@dell-precision-7670:~/devops-aug-2022/Day3/CustomDockerImagesForAnsibleNodes/ubuntu$ <b>docker build -t tektutor/ubuntu-ansible-node:1.0 .</b>
+jegan@dell-precision-7670:~/devops-aug-2022/Day3/CustomDockerImagesForAnsibleNodes/ubuntu$ docker build -t tektutor/ubuntu-ansible-node:1.0 .
 Sending build context to Docker daemon  4.096kB
 Step 1/12 : FROM ubuntu:16.04
 16.04: Pulling from library/ubuntu
