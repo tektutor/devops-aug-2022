@@ -895,3 +895,44 @@ ubuntu2 | SUCCESS => {
 META: ran handlers
 META: ran handlers
 </pre>
+
+## Listing ansible modules supported by Ansible Core
+```
+ansible-doc -l
+```
+
+## Getting help manual for any known ansible module
+```
+ansible-doc copy
+```
+
+Expected output
+<pre>
+jegan@dell-precision-7670:~/devops-aug-2022/Day3/Ansible$ <b>ansible-doc copy</b>
+> ANSIBLE.BUILTIN.COPY    (/home/jegan/.local/lib/python3.8/site-packages/ansible/modules/copy.py)
+
+        The `copy' module copies a file from the local or remote machine to a
+        location on the remote machine. Use the [ansible.builtin.fetch] module to
+        copy files from remote locations to the local box. If you need variable
+        interpolation in copied files, use the [ansible.builtin.template] module.
+        Using a variable in the `content' field will result in unpredictable output.
+        For Windows targets, use the [ansible.windows.win_copy] module instead.
+
+ADDED IN: historical
+
+  * note: This module has a corresponding action plugin.
+
+OPTIONS (= is mandatory):
+
+- attributes
+        The attributes the resulting filesystem object should have.
+        To get supported flags look at the man page for `chattr' on the target
+        system.
+        This string should contain the attributes in the same order as the one
+        displayed by `lsattr'.
+        The `=' operator is assumed as default, otherwise `+' or `-' operators need
+        to be included in the string.
+        (Aliases: attr)[Default: (null)]
+        type: str
+        added in: version 2.3 of ansible-core
+</pre>
