@@ -295,3 +295,12 @@ The key's randomart image is:
 |         .===    |
 +----[SHA256]-----+
 </pre>
+
+## Let's copy the public key as authorized_keys
+```
+cd ~/devops-aug-2022
+git pull
+
+cd Day3/CustomDockerImagesForAnsibleNodes/ubuntu
+cp ~/.ssh/id_rsa.pub authorized_keys
+```
