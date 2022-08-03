@@ -731,3 +731,58 @@ CONTAINER ID   IMAGE                              COMMAND               CREATED 
 f8f02bb807cd   tektutor/ubuntu-ansible-node:1.0   "/usr/sbin/sshd -D"   2 seconds ago    Up 1 second     0.0.0.0:2002->22/tcp, :::2002->22/tcp, 0.0.0.0:8002->80/tcp, :::8002->80/tcp   ubuntu2
 59cfd27397a3   tektutor/ubuntu-ansible-node:1.0   "/usr/sbin/sshd -D"   17 seconds ago   Up 16 seconds   0.0.0.0:2001->22/tcp, :::2001->22/tcp, 0.0.0.0:8001->80/tcp, :::8001->80/tcp   ubuntu1
 </pre>
+
+## Testing the ansible node containers for SSH connection with public key
+```
+ssh -p 2001 root@locahost
+exit
+
+ssh -p 2001 root@locahost
+exit
+```
+
+Expected output
+<pre>
+jegan@dell-precision-7670:~$ <b>ssh -p 2001 root@localhost</b>
+The authenticity of host '[localhost]:2001 ([127.0.0.1]:2001)' can't be established.
+ECDSA key fingerprint is SHA256:MyepWPsd6fCbIhKEpb+LERsMvUef3EG8cFTlOr5Vt0s.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[localhost]:2001' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 5.14.0-1046-oem x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+root@ubuntu1:~# <b>exit</b>
+logout
+Connection to localhost closed.
+jegan@dell-precision-7670:~$ <b>ssh -p 2002 root@localhost</b>
+The authenticity of host '[localhost]:2002 ([127.0.0.1]:2002)' can't be established.
+ECDSA key fingerprint is SHA256:MyepWPsd6fCbIhKEpb+LERsMvUef3EG8cFTlOr5Vt0s.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[localhost]:2002' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 5.14.0-1046-oem x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+root@ubuntu2:~# <b>exit</b>
+logout
+Connection to localhost closed.
+</pre>
