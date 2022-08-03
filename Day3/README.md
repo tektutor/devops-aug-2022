@@ -307,7 +307,7 @@ cp ~/.ssh/id_rsa.pub authorized_keys
 
 ## Let's build our custom ubuntu ansible node Docker image
 <pre>
-jegan@dell-precision-7670:~/devops-aug-2022/Day3/CustomDockerImagesForAnsibleNodes/ubuntu$ docker build -t tektutor/ubuntu-ansible-node:1.0 .
+jegan@dell-precision-7670:~/devops-aug-2022/Day3/CustomDockerImagesForAnsibleNodes/ubuntu$ <b>docker build -t tektutor/ubuntu-ansible-node:1.0 .</b>
 Sending build context to Docker daemon  4.096kB
 Step 1/12 : FROM ubuntu:16.04
 16.04: Pulling from library/ubuntu
