@@ -1019,3 +1019,9 @@ PLAY RECAP *********************************************************************
 ubuntu1                    : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 ubuntu2                    : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
 </pre>
+
+## Accessing the nginx web pages
+```
+curl http://localhost:8001
+curl http://localhost:8002
+```
