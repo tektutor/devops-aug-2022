@@ -709,6 +709,12 @@ ubuntu                                    16.04     b6f507652425   11 months ago
 </pre>
 
 ## Let's create two ansible node containers
+Delete all existing containers
+```
+docker rm -f $(docker ps -aq)
+```
+
+Now let's create our ansible node containers
 ```
 docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 -p 8001:80 tektutor/ubuntu-ansible-node:1.0
 docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 -p 8002:80 tektutor/ubuntu-ansible-node:1.0
