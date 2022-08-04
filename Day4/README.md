@@ -75,3 +75,63 @@ cd ~/Downloads
 java -jar ./jenkins.war
 ```
 The above command will launch Jenkins in the interactive mode, so you won't be able to use this terminal for other purpose.  Hence I would recommend opening another tab for running any other commands.
+
+Expected output
+<pre>
+jegan@dell-precision-7670:~/Downloads$ java -jar ./jenkins.war 
+Running from: /home/jegan/Downloads/jenkins.war
+webroot: $user.home/.jenkins
+2022-08-04 06:44:02.830+0000 [id=1]	INFO	org.eclipse.jetty.util.log.Log#initialized: Logging initialized @225ms to org.eclipse.jetty.util.log.JavaUtilLog
+2022-08-04 06:44:02.862+0000 [id=1]	INFO	winstone.Logger#logInternal: Beginning extraction from war file
+2022-08-04 06:44:02.873+0000 [id=1]	WARNING	o.e.j.s.handler.ContextHandler#setContextPath: Empty contextPath
+2022-08-04 06:44:02.900+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: jetty-9.4.45.v20220203; built: 2022-02-03T09:14:34.105Z; git: 4a0c91c0be53805e3fcffdcdcc9587d5301863db; jvm 11.0.15+10-Ubuntu-0ubuntu0.20.04.1
+2022-08-04 06:44:03.001+0000 [id=1]	INFO	o.e.j.w.StandardDescriptorProcessor#visitServlet: NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+2022-08-04 06:44:03.015+0000 [id=1]	INFO	o.e.j.s.s.DefaultSessionIdManager#doStart: DefaultSessionIdManager workerName=node0
+2022-08-04 06:44:03.015+0000 [id=1]	INFO	o.e.j.s.s.DefaultSessionIdManager#doStart: No SessionScavenger set, using defaults
+2022-08-04 06:44:03.016+0000 [id=1]	INFO	o.e.j.server.session.HouseKeeper#startScavenging: node0 Scavenging every 660000ms
+2022-08-04 06:44:03.200+0000 [id=1]	INFO	hudson.WebAppMain#contextInitialized: Jenkins home directory: /home/jegan/.jenkins found at: $user.home/.jenkins
+2022-08-04 06:44:03.280+0000 [id=1]	INFO	o.e.j.s.handler.ContextHandler#doStart: Started w.@495083a0{Jenkins v2.346.2,/,file:///home/jegan/.jenkins/war/,AVAILABLE}{/home/jegan/.jenkins/war}
+2022-08-04 06:44:03.297+0000 [id=1]	INFO	o.e.j.server.AbstractConnector#doStart: Started ServerConnector@eb21112{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2022-08-04 06:44:03.298+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: Started @693ms
+2022-08-04 06:44:03.298+0000 [id=40]	INFO	winstone.Logger#logInternal: Winstone Servlet Engine running: controlPort=disabled
+2022-08-04 06:44:03.466+0000 [id=47]	INFO	jenkins.InitReactorRunner$1#onAttained: Started initialization
+2022-08-04 06:44:03.470+0000 [id=67]	INFO	jenkins.InitReactorRunner$1#onAttained: Listed all plugins
+2022-08-04 06:44:03.836+0000 [id=75]	INFO	jenkins.InitReactorRunner$1#onAttained: Prepared all plugins
+2022-08-04 06:44:03.840+0000 [id=85]	INFO	jenkins.InitReactorRunner$1#onAttained: Started all plugins
+2022-08-04 06:44:03.843+0000 [id=93]	INFO	jenkins.InitReactorRunner$1#onAttained: Augmented all extensions
+2022-08-04 06:44:04.020+0000 [id=45]	INFO	jenkins.InitReactorRunner$1#onAttained: System config loaded
+2022-08-04 06:44:04.021+0000 [id=64]	INFO	jenkins.InitReactorRunner$1#onAttained: System config adapted
+2022-08-04 06:44:04.021+0000 [id=64]	INFO	jenkins.InitReactorRunner$1#onAttained: Loaded all jobs
+2022-08-04 06:44:04.021+0000 [id=64]	INFO	jenkins.InitReactorRunner$1#onAttained: Configuration for all jobs updated
+2022-08-04 06:44:04.030+0000 [id=106]	INFO	hudson.model.AsyncPeriodicWork#lambda$doRun$1: Started Download metadata
+2022-08-04 06:44:04.033+0000 [id=106]	INFO	hudson.model.AsyncPeriodicWork#lambda$doRun$1: Finished Download metadata. 2 ms
+2022-08-04 06:44:04.079+0000 [id=64]	INFO	jenkins.install.SetupWizard#init: 
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+6a743a8448ff4473b932bb22e9e2fab7
+
+This may also be found at: /home/jegan/.jenkins/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/home/jegan/.jenkins/war/WEB-INF/lib/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2022-08-04 06:44:12.856+0000 [id=64]	INFO	jenkins.InitReactorRunner$1#onAttained: Completed initialization
+2022-08-04 06:44:12.867+0000 [id=32]	INFO	hudson.lifecycle.Lifecycle#onReady: <b>Jenkins is fully up and running</b>
+</pre>
+
+## Accessing Jenkins Dashboard from the Web browser
+```
+http://localhost:8080
+```
