@@ -140,3 +140,63 @@ WARNING: All illegal access operations will be denied in a future release
 ```
 http://localhost:8080
 ```
+
+## Enable REST API 
+
+<pre>
+egan@dell-precision-7670:~$ sudo systemctl status docker
+[sudo] password for jegan: 
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: active (running) since Wed 2022-08-03 14:16:49 IST; 23h ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 2694 (dockerd)
+      Tasks: 122
+     Memory: 150.8M
+     CGroup: /system.slice/docker.service
+             ├─ 2694 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+             ├─ 5152 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8001 -container-ip 172>
+             ├─ 5160 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 8001 -container-ip 172.17.0>
+             ├─ 5174 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 2001 -container-ip 172>
+             ├─ 5182 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 2001 -container-ip 172.17.0>
+             ├─11134 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8002 -container-ip 172>
+             ├─11140 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 8002 -container-ip 172.17.0>
+             ├─11152 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 2002 -container-ip 172>
+             ├─11159 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 2002 -container-ip 172.17.0>
+             ├─21027 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8082 -container-ip 172>
+             ├─21034 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 8082 -container-ip 172.17.0>
+             ├─21049 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8081 -container-ip 172>
+             └─21056 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 8081 -container-ip 172.17.0>
+
+Aug 03 14:16:49 dell-precision-7670 dockerd[2694]: time="2022-08-03T14:16:49.447719232+05:30" level=info>
+Aug 03 14:16:49 dell-precision-7670 dockerd[2694]: time="2022-08-03T14:16:49.464505680+05:30" level=info>
+Aug 03 14:16:49 dell-precision-7670 dockerd[2694]: time="2022-08-03T14:16:49.488189167+05:30" level=info>
+Aug 03 14:16:49 dell-precision-7670 dockerd[2694]: time="2022-08-03T14:16:49.488373990+05:30" level=info>
+Aug 03 14:16:49 dell-precision-7670 systemd[1]: Started Docker Application Container Engine.
+jegan@dell-precision-7670:~$ sudo vim /lib/systemd/system/docker.service
+jegan@dell-precision-7670:~$ sudo systemctl daemon-reload
+jegan@dell-precision-7670:~$ sudo systemctl restart docker
+jegan@dell-precision-7670:~$ sudo systemctl status docker
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2022-08-04 14:07:15 IST; 14s ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 77609 (dockerd)
+      Tasks: 29
+     Memory: 34.2M
+     CGroup: /system.slice/docker.service
+             └─77609 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://0.0.0.0:4243
+
+Aug 04 14:07:15 dell-precision-7670 dockerd[77609]: time="2022-08-04T14:07:15.438382334+05:30" level=warning msg="Your kernel >
+Aug 04 14:07:15 dell-precision-7670 dockerd[77609]: time="2022-08-04T14:07:15.438416511+05:30" level=warning msg="Your kernel >
+Aug 04 14:07:15 dell-precision-7670 dockerd[77609]: time="2022-08-04T14:07:15.438608756+05:30" level=info msg="Loading contain>
+Aug 04 14:07:15 dell-precision-7670 dockerd[77609]: time="2022-08-04T14:07:15.552205957+05:30" level=info msg="Default bridge >
+Aug 04 14:07:15 dell-precision-7670 dockerd[77609]: time="2022-08-04T14:07:15.592581542+05:30" level=info msg="Loading contain>
+Aug 04 14:07:15 dell-precision-7670 dockerd[77609]: time="2022-08-04T14:07:15.605436265+05:30" level=info msg="Docker daemon" >
+Aug 04 14:07:15 dell-precision-7670 dockerd[77609]: time="2022-08-04T14:07:15.605504250+05:30" level=info msg="Daemon has comp>
+Aug 04 14:07:15 dell-precision-7670 systemd[1]: Started Docker Application Container Engine.
+Aug 04 14:07:15 dell-precision-7670 dockerd[77609]: time="2022-08-04T14:07:15.626278899+05:30" level=info msg="API listen on />
+Aug 04 14:07:15 dell-precision-7670 dockerd[77609]: time="2022-08-04T14:07:15.633905144+05:30" level=info msg="API listen on [>
+</pre>
