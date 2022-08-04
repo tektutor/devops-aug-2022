@@ -69,4 +69,9 @@
  - The team that originally developed Hudson they came of Oracle, they forked Hudson source code as Jenkins
  - The part of the Hudson that came out of Oracle maintains the Jenkins, while the team at Oracle maintains the Hudson
 
-
+## Launching Jenkins
+```
+cd ~/Downloads
+java -jar ./jenkins.war
+```
+The above command will launch Jenkins in the interactive mode, so you won't be able to use this terminal for other purpose.  Hence I would recommend opening another tab for running any other commands.
