@@ -69,6 +69,11 @@
  - The team that originally developed Hudson they came of Oracle, they forked Hudson source code as Jenkins
  - The part of the Hudson that came out of Oracle maintains the Jenkins, while the team at Oracle maintains the Hudson
 
+## You may check my medium blog on this topic here
+<pre>
+https://medium.com/tektutor/ci-cd-with-maven-github-docker-jenkins-aca28c252fec
+</pre>
+
 ## Launching Jenkins
 ```
 cd ~/Downloads
