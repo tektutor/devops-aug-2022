@@ -57,5 +57,16 @@
    - Orchestration Platforms - Docker SWARM, Kubernetes, RedHat OpenShift, AWS ROSA, Azure OpenShift,etc.,
    - Build Tools - Jenkins, Cloudbees, etc.,
    - Pipeline - XLR/XLD, Jenkins, Tekton, etc.,
-   
+ 
+ ## Jenkins
+ - CI/CD Build Server
+ - developed by Kohsuke Kawaguchi
+ - Kohsuke Kawaguchi was a former Sun MicroSystems employee
+ - developed a CI/CD tool called Hudson
+ - later Oracle acquired Sun MicroSystems
+ - Oracle CEO
+    - Lary Elison
+ - The team that originally developed Hudson they came of Oracle, they forked Hudson source code as Jenkins
+ - The part of the Hudson that came out of Oracle maintains the Jenkins, while the team at Oracle maintains the Hudson
+
 
