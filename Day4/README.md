@@ -200,3 +200,16 @@ Aug 04 14:07:15 dell-precision-7670 systemd[1]: Started Docker Application Conta
 Aug 04 14:07:15 dell-precision-7670 dockerd[77609]: time="2022-08-04T14:07:15.626278899+05:30" level=info msg="API listen on />
 Aug 04 14:07:15 dell-precision-7670 dockerd[77609]: time="2022-08-04T14:07:15.633905144+05:30" level=info msg="API listen on [>
 </pre>
+
+## Jenkins Master/Slave Node Setup
+- Jenkins Master
+   - ideally should only on detecting code change and delegating the build to Jenkins Slave
+- Jenkins Slave
+   - You may have any number of Jenkins Slave machines so that many parallel builds can be happen
+   - This also will happen, when same codebase is supported on multiple platforms ( Windows  10 32/64bit, RHEL 7, RHEL 8, CentOS 7.x, Fedora, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04 )
+   - We don't need to install Jenkins slave binary, as this will be taken care by Jenkins Master
+   - headless ( no GUI is there, hence end-user will not be able to interact with Jenkins slave )
+   - only Jenkins Master will be able to communicate with the Jenkins slave
+   - but all the build status can be monitored and reported from the master Jenkins
+   - can be Physical Servers, Virtual Machine, Docker Container, can be AWS/Azure/GCP ec2 instances, etc.,
+   
