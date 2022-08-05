@@ -572,3 +572,27 @@ Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/p
 [INFO] Finished at: 2022-08-05T12:36:12+05:30
 [INFO] ------------------------------------------------------------------------
 </pre>
+
+## DevOps CI/CD Pipeline
+
+Tools
+- Docker
+- Ansible
+- Maven
+- Jenkins
+
+Git/GitHub
+  - Version Control
+
+Ansible
+  - Build a custom Docker Image which will be used as a Jenkins Slave
+
+Docker Container
+  - as a Jenkins Slave
+
+Maven
+  - We can take CRM maven project and build it inside the Docker Container ( Jenkins Slave )
+  
+Jenkins
+  - polls GitHub devops-aug-2022 repository
+  - when it detects code change, it should trigger Maven package  
