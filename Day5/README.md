@@ -117,4 +117,24 @@ Click on Save & Test.  You are expected to see a Green status for a successful c
 Select Dashboard, and then click on Import, and type 9964 Grafana Dashboard.
 
 
+## Integrating SonarQube Reports as part of Maven Build
 
+Start SonarQube Server as a docker container
+```
+docker run -d --name sonar --hostname sonar sonarqube:lts-community
+```
+
+Expected output
+<pre>
+jegan@dell-precision-7670:~/devops-aug-2022/Day5/CRM$ docker run -d --name sonar --hostname sonar sonarqube:lts-community
+Unable to find image 'sonarqube:lts-community' locally
+lts-community: Pulling from library/sonarqube
+6097bfa160c1: Pull complete 
+2a917640abdb: Pull complete 
+05e4df694b2a: Pull complete 
+ab4db49dccdd: Pull complete 
+dc96645c4a2a: Pull complete 
+Digest: sha256:2a241b2c26c496a0bf204e0a320da75eafdab000e8043487f0d3d9354fd8479a
+Status: Downloaded newer image for sonarqube:lts-community
+9180dd0290004df6019ed6b8fda8a409cebb57fb94cb68b3eb58dfd8f0bc7ab5
+</pre>
