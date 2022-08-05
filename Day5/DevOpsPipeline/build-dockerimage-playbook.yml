@@ -5,7 +5,11 @@
     docker_image:
         docker_host: tcp://localhost:4243
         name: tektutor/jenkins-slave
+        tag: latest
         force_absent: true
+        source: local
+        build:
+          path: .
 
   - name: Build Jenkins Slave Node Docker Image
     docker_image:
