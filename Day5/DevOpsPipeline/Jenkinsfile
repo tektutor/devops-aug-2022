@@ -8,8 +8,9 @@ pipeline {
             steps {
                 script {
                     sh "pwd"
-		    sh "cd Day5/CRM"
-                    sh "mvn clean compile"
+                    dir("Day5/CRM") {
+                    	sh "mvn clean compile"
+		    }
                 }
             }
         }
@@ -17,8 +18,9 @@ pipeline {
             steps {
                 script {
                     sh "pwd"
-		    sh "cd Day5/CRM"
-                    sh "mvn test"
+		    dir("Day5/CRM") {
+                    	sh "mvn test"
+		    }
                 }
             }
         }
@@ -26,8 +28,9 @@ pipeline {
             steps {
                 script {
                     sh "pwd"
-		    sh "cd Day5/CRM"
-                    sh "mvn package"
+                    dir("Day5/CRM") {
+                    	sh "mvn package"
+	            }
                 }
             }
         }
@@ -35,8 +38,9 @@ pipeline {
             steps {
                 script {
                     sh "pwd"
-		    sh "cd Day5/CRM"
-                    sh "mvn install"
+                    dir("Day5/CRM") {
+                    	sh "mvn install"
+		    }
                 }
             }
         }
