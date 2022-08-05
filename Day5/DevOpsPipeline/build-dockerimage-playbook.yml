@@ -5,7 +5,7 @@
     docker_image:
         docker_host: tcp://localhost:4243
         name: tektutor/jenkins-slave
-        state: absent 
+        force_absent: true
 
   - name: Build Jenkins Slave Node Docker Image
     docker_image:
