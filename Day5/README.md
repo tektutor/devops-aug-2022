@@ -572,3 +572,75 @@ Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/p
 [INFO] Finished at: 2022-08-05T12:36:12+05:30
 [INFO] ------------------------------------------------------------------------
 </pre>
+
+## DevOps CI/CD Pipeline
+
+Tools
+- Docker
+- Ansible
+- Maven
+- Jenkins
+
+Git/GitHub
+  - Version Control
+
+Ansible
+  - Build a custom Docker Image which will be used as a Jenkins Slave
+
+Docker Container
+  - as a Jenkins Slave
+
+Maven
+  - We can take CRM maven project and build it inside the Docker Container ( Jenkins Slave )
+  
+Jenkins
+  - polls GitHub devops-aug-2022 repository
+  - when it detects code change, it should trigger Maven package  
+
+### Let's install docker-py python SDK 
+The docker_image ansible module depends on docker-py python SDK. Hence we need to install the docker-py module.
+```
+pip3 install docker-py
+```
+
+
+Expected output
+<pre>
+jegan@dell-precision-7670:~/devops-aug-2022/Day5/DevOpsPipeline$ <b>pip3 install docker-py</b>
+Collecting docker-py
+  Downloading docker_py-1.10.6-py2.py3-none-any.whl (50 kB)
+     |████████████████████████████████| 50 kB 1.1 MB/s 
+Collecting websocket-client>=0.32.0
+  Downloading websocket_client-1.3.3-py3-none-any.whl (54 kB)
+     |████████████████████████████████| 54 kB 3.4 MB/s 
+Requirement already satisfied: six>=1.4.0 in /usr/lib/python3/dist-packages (from docker-py) (1.14.0)
+Collecting docker-pycreds>=0.2.1
+  Downloading docker_pycreds-0.4.0-py2.py3-none-any.whl (9.0 kB)
+Requirement already satisfied: requests!=2.11.0,>=2.5.2 in /usr/lib/python3/dist-packages (from docker-py) (2.22.0)
+Installing collected packages: websocket-client, docker-pycreds, docker-py
+Successfully installed docker-py-1.10.6 docker-pycreds-0.4.0 websocket-client-1.3.3
+</pre>
+
+### We need an Anible playbook to automate the Jenkins Slave Docker Image
+So let's create an Ansible Playbook as shown below
+<pre>
+
+</pre>
+
+Testing the ansible playbook
+<pre>
+jegan@dell-precision-7670:~/devops-aug-2022/Day5/DevOpsPipeline$ <b>ansible-playbook build-dockerimage-playbook.yml</b>
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [This playbook will build custom docker image to be used later as Jenkins Slave Node] ************************************
+
+TASK [Gathering Facts] ********************************************************************************************************
+ok: [localhost]
+
+TASK [Build Jenkins Slave Node Docker Image] **********************************************************************************
+changed: [localhost]
+
+PLAY RECAP ********************************************************************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+</pre>
