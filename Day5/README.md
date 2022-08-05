@@ -620,3 +620,27 @@ Requirement already satisfied: requests!=2.11.0,>=2.5.2 in /usr/lib/python3/dist
 Installing collected packages: websocket-client, docker-pycreds, docker-py
 Successfully installed docker-py-1.10.6 docker-pycreds-0.4.0 websocket-client-1.3.3
 </pre>
+
+### We need an Anible playbook to automate the Jenkins Slave Docker Image
+So let's create an Ansible Playbook as shown below
+<pre>
+
+</pre>
+
+Testing the ansible playbook
+<pre>
+jegan@dell-precision-7670:~/devops-aug-2022/Day5/DevOpsPipeline$ <b>ansible-playbook build-dockerimage-playbook.yml</b>
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+PLAY [This playbook will build custom docker image to be used later as Jenkins Slave Node] ************************************
+
+TASK [Gathering Facts] ********************************************************************************************************
+ok: [localhost]
+
+TASK [Build Jenkins Slave Node Docker Image] **********************************************************************************
+changed: [localhost]
+
+PLAY RECAP ********************************************************************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+</pre>
