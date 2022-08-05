@@ -4,6 +4,17 @@ pipeline {
         label 'docker-slave'
     }
     stages {
+       
+        stage('Build docker image') {
+            agent { label "Built-in Node" }
+            steps {
+                script {
+                    dir("Day5/DevOpsPipeline") {
+                    	sh "ansible-playbook build-dockerimage-playbook.yml"
+		    }
+                }
+            }
+        }
         stage('Compile') {
             steps {
                 script {
