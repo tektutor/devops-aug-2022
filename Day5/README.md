@@ -596,3 +596,27 @@ Maven
 Jenkins
   - polls GitHub devops-aug-2022 repository
   - when it detects code change, it should trigger Maven package  
+
+### Let's install docker-py python SDK 
+The docker_image ansible module depends on docker-py python SDK. Hence we need to install the docker-py module.
+```
+pip3 install docker-py
+```
+
+
+Expected output
+<pre>
+jegan@dell-precision-7670:~/devops-aug-2022/Day5/DevOpsPipeline$ <b>pip3 install docker-py</b>
+Collecting docker-py
+  Downloading docker_py-1.10.6-py2.py3-none-any.whl (50 kB)
+     |████████████████████████████████| 50 kB 1.1 MB/s 
+Collecting websocket-client>=0.32.0
+  Downloading websocket_client-1.3.3-py3-none-any.whl (54 kB)
+     |████████████████████████████████| 54 kB 3.4 MB/s 
+Requirement already satisfied: six>=1.4.0 in /usr/lib/python3/dist-packages (from docker-py) (1.14.0)
+Collecting docker-pycreds>=0.2.1
+  Downloading docker_pycreds-0.4.0-py2.py3-none-any.whl (9.0 kB)
+Requirement already satisfied: requests!=2.11.0,>=2.5.2 in /usr/lib/python3/dist-packages (from docker-py) (2.22.0)
+Installing collected packages: websocket-client, docker-pycreds, docker-py
+Successfully installed docker-py-1.10.6 docker-pycreds-0.4.0 websocket-client-1.3.3
+</pre>
