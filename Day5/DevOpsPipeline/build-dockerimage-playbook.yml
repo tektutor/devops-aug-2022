@@ -1,0 +1,12 @@
+- name: This playbook will build custom docker image to be used later as Jenkins Slave Node
+  hosts: localhost
+  tasks:
+  - name: Build Jenkins Slave Node Docker Image
+    docker_image:
+        docker_host: tcp://localhost:4243
+        name: tektutor/jenkins-slave
+        tag: latest
+        state: present
+        source: build
+        build:
+          path: .
