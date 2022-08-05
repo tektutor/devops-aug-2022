@@ -6,7 +6,7 @@ pipeline {
     stages {
        
         stage('Build docker image') {
-            agent { label "built-in node" }
+            agent { label "controller" }
             steps {
                 script {
                     dir("Day5/DevOpsPipeline") {
