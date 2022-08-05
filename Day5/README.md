@@ -74,7 +74,7 @@ docker logs prometheus
 ```
 ### Accessing Prometheus web page from Google Chrome web browser
 ```
-http://<prometheus-container-ip>:9090
+http://prometheus-container-ip:9090
 ```
 
 ## Starting the grafana server as a Docker container
@@ -105,7 +105,7 @@ Status: Downloaded newer image for grafana/grafana:latest
 
 
 <pre>
-url - http://<grafana-container-ip>:3000
+url - http://grafana-container-ip:3000
 username - admin
 password - Admin@123
 </pre>
@@ -148,7 +148,7 @@ Status: Downloaded newer image for sonarqube:lts-community
 
 ### SonarQube URL and Login Credentials
 <pre>
-url - http://<sonarqube-container-ip>:9000
+url - http://sonarqube-container-ip:9000
 default username - admin
 default password - admin
 updated password - Admin@123
