@@ -7,7 +7,7 @@ pipeline {
         stage('Compile') {
             steps {
                 script {
-		    sh "cd Day5/DevOpsPipeline/CRM"
+		    sh "cd ../CRM"
                     sh "mvn clean compile"
                 }
             }
@@ -15,7 +15,7 @@ pipeline {
         stage('Unit Test') {
             steps {
                 script {
-		    sh "cd Day5/DevOpsPipeline/CRM"
+		    sh "cd ../CRM"
                     sh "mvn test"
                 }
             }
@@ -23,7 +23,7 @@ pipeline {
         stage('package') {
             steps {
                 script {
-		    sh "cd Day5/DevOpsPipeline/CRM"
+		    sh "cd ../CRM"
                     sh "mvn package"
                 }
             }
@@ -31,7 +31,7 @@ pipeline {
         stage('Install') {
             steps {
                 script {
-		    sh "cd Day5/DevOpsPipeline/CRM"
+		    sh "cd ../CRM"
                     sh "mvn install"
                 }
             }
