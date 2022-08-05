@@ -1,5 +1,15 @@
 # Day 5
 
+## Installing Prometheus Metrics Plugin in Jenkins
+- Navigate to Jenkins --> Manage Jenkins --> Manage Plugins --> Available --> Prometheus Metrics Plugin
+- Install and Restart Jenkins
+
+### Verifying successful installation of Jenkins Prometheus Metrics Plugin
+Try to access the Jenkins metrics collected by Prometheus Plugin
+```
+http://localhost:8080/prometheus
+```
+
 ## Starting the prometheus server as a Docker container
 ```
 docker run -d --name prometheus --hostname prometheus bitnami/prometheus:latest
@@ -25,6 +35,43 @@ Status: Downloaded newer image for bitnami/prometheus:latest
 b6053865d7458ba93cc9e1f8e14f9d57c8aedd8ee57e169d6db21e596c883ef2
 </pre>
 
+### Configuring prometheus to collect metrics from the jenkins REST endpoint
+We need to create a prometheus configuration file name prometheus.yml with the below content
+<pre>
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+
+rule_files:
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  - job_name: "jenkins"
+    metrics_path: "/prometheus"
+    static_configs:
+      - targets: ["192.168.1.104:8080"]
+</pre>
+In the above configuration file, you need to replace 192.168.1.104 IP address with your RPS Lab machine IP Address.
+
+Copy the prometheus config file into the container
+```
+docker cp prometheus.yml prometheus:/opt/bitnami/prometheus/conf/prometheus.yml
+```
+
+Restart the prometheus container to apply the config changes
+```
+docker restart prometheus
+docker ps
+docker logs prometheus
+```
 
 ## Starting the grafana server as a Docker container
 ```
@@ -49,3 +96,25 @@ Digest: sha256:c6aa20c31944df1ceebc8ac04809cdb9d02a0969a4176f516c117eed9e488556
 Status: Downloaded newer image for grafana/grafana:latest
 09b5d3c1be7450268db2e3e54ae0e101a0e99e92732e95368d28957147e48636
 </pre>
+
+### Login to grafana with the below credentials
+<pre>
+username - admin
+password - Admin@123
+</pre>
+
+### Configuration Grafana to Integrate Prometheus Datasource and Create a Jenkins Dashboard
+
+Select Datasource and pick Prometheus.
+
+Under the URL, you can type 172.17.0.5:9090
+
+You need to replace 172.17.0.5 IP Address with your prometheus container IP.
+
+Click on Save & Test.  You are expected to see a Green status for a successful configuration/integration.
+
+
+Select Dashboard, and then click on Import, and type 9964 Grafana Dashboard.
+
+
+
