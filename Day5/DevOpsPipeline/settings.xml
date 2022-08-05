@@ -112,7 +112,7 @@ under the License.
     <server>
       <id>artifactory</id>
       <username>admin</username>
-      <password>password</password>
+      <password>Admin@123</password>
     </server>
     <!-- server
      | Specifies the authentication information to use when connecting to a particular server, identified by
