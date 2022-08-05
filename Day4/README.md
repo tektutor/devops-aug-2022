@@ -203,7 +203,7 @@ Aug 04 14:07:15 dell-precision-7670 dockerd[77609]: time="2022-08-04T14:07:15.63
 
 ## Jenkins Master/Slave Node Setup
 - Jenkins Master
-   - ideally should only on detecting code change and delegating the build to Jenkins Slave
+   - ideally should only detect code change and delegate the build to Jenkins Slave
 - Jenkins Slave
    - You may have any number of Jenkins Slave machines so that many parallel builds can be happen
    - This also will happen, when same codebase is supported on multiple platforms ( Windows  10 32/64bit, RHEL 7, RHEL 8, CentOS 7.x, Fedora, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04 )
