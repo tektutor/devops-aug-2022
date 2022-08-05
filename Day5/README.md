@@ -72,6 +72,10 @@ docker restart prometheus
 docker ps
 docker logs prometheus
 ```
+### Accessing Prometheus web page from Google Chrome web browser
+```
+http://<prometheus-container-ip>:9090
+```
 
 ## Starting the grafana server as a Docker container
 ```
@@ -98,7 +102,10 @@ Status: Downloaded newer image for grafana/grafana:latest
 </pre>
 
 ### Login to grafana with the below credentials
+
+
 <pre>
+url - http://<grafana-container-ip>:3000
 username - admin
 password - Admin@123
 </pre>
@@ -137,4 +144,12 @@ dc96645c4a2a: Pull complete
 Digest: sha256:2a241b2c26c496a0bf204e0a320da75eafdab000e8043487f0d3d9354fd8479a
 Status: Downloaded newer image for sonarqube:lts-community
 9180dd0290004df6019ed6b8fda8a409cebb57fb94cb68b3eb58dfd8f0bc7ab5
+</pre>
+
+### SonarQube URL and Login Credentials
+<pre>
+url - http://<sonarqube-container-ip>:9000
+default username - admin
+default password - admin
+updated password - Admin@123
 </pre>
