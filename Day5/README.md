@@ -644,3 +644,13 @@ changed: [localhost]
 PLAY RECAP ********************************************************************************************************************
 localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 </pre>
+
+Post-test URL
+<pre>
+https://app.mymapit.in/code4/tiny/KppvFa
+</pre>
+
+Feedback URL
+<pre>
+Feedback link : https://tcheck.co/n9Z7b7
+</pre>
