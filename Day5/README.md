@@ -106,8 +106,9 @@ Status: Downloaded newer image for grafana/grafana:latest
 
 <pre>
 url - http://grafana-container-ip:3000
-username - admin
-password - Admin@123
+default username - admin
+default password - admin
+updated password - Admin@123
 </pre>
 
 ### Configuration Grafana to Integrate Prometheus Datasource and Create a Jenkins Dashboard
