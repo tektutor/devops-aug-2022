@@ -2,14 +2,8 @@
   hosts: localhost
   tasks:
   - name: Delete Jenkins Slave Node Docker Image
-    docker_image:
-        docker_host: tcp://localhost:4243
-        name: tektutor/jenkins-slave
-        tag: latest
-        force_absent: true
-        source: local
-        build:
-          path: .
+    shell: docker rmi -f tektutor/jenkins-slave:latest
+    ignore_errors: true
 
   - name: Build Jenkins Slave Node Docker Image
     docker_image:
